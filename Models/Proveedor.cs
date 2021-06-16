@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+//using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -8,8 +9,8 @@ namespace ProyectoWebCursoLenguajes.Models
 {
     public class Proveedor
     {
-		[key]
-		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+		[Key]
+		//[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int idProveedor { get; set; }
 
 		public string cedulaLegal { get; set; }
