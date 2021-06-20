@@ -32,33 +32,69 @@
             </nav> @*nav azul*@
 
 
-        <div>
-            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-light border-bottom box-shadow mb-3">
-                <div class="container">
-                    <a class="navbar-brand" href="#"></a>
-                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                        <div class="navbar-nav">
-                            <a class="nav-item nav-link" href="#">Linea blanca</a>
-                            <a class="nav-item nav-link" href="#">Linea Tecnologica</a>
-                            <a class="nav-item nav-link" href="#">Linea Hogar</a>
-                            <a class="nav-item nav-link" href="#">Abarrotes</a>
-                        </div>
+            <div>
+                <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-light border-bottom box-shadow mb-3">
+                    <div class="container">
+                        <a class="navbar-brand" href="#"></a>
+                        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                            <div class="navbar-nav">
+                                <a class="nav-item nav-link" href="#">Linea blanca</a>
+                                <a class="nav-item nav-link" href="#">Linea Tecnologica</a>
+                                <a class="nav-item nav-link" href="#">Linea Hogar</a>
+                                <a class="nav-item nav-link" href="#">Abarrotes</a>
+                            </div>
 
-                        <div class="col-sm-3">
-                            <button type="button" class="btn btn-default btn-lg">
-                                <a href="#" class="btn btn-info btn-lg">
-                                    <span class="fa fa-shopping-cart"></span>
-                                </a>
+                            <div class="col-sm-3">
+                                <button type="button" class="btn btn-default btn-lg">
+                                    <a href="#" class="btn btn-info btn-lg">
+                                        <span class="fa fa-shopping-cart"></span>
+                                    </a>
 
-                            </button>
+                                </button>
+                            </div>
                         </div>
                     </div>
-                    </div>
-            </nav>
-        </div>
-             
+                </nav>
+            </div> @*nav 2*@
 
-</header>
+            <div id="demo" class="carousel slide" data-ride="carousel">
+
+                <!-- Indicators -->
+                <ul class="carousel-indicators">
+                    <li data-target="#demo" data-slide-to="0" class="active"></li>
+                    <li data-target="#demo" data-slide-to="1"></li>
+                    <li data-target="#demo" data-slide-to="2"></li>
+                </ul>
+
+                <!-- The slideshow -->
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="~/css/img/news-6.jpg" alt="Los Angeles" width="1100" height="100">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="~/css/img/news-6.jpg" alt="Chicago" width="1100" height="100">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="~/css/img/news-6.jpg" alt="New York" width="1100" height="100">
+                    </div>
+                </div>
+
+                <!-- Left and right controls -->
+                <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </a>
+                <a class="carousel-control-next" href="#demo" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </a>
+            </div>
+        </header>
+        <body>
+            <div class="productos">
+                This text is the content of the box. We have added a 50px padding, 20px margin and a 15px green border. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+            </div>
+        </body>
+        
         <div class="container">
             <main role="main" class="pb-3">
                 @RenderBody()
