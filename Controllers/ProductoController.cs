@@ -149,5 +149,10 @@ namespace ProyectoWebCursoLenguajes.Controllers
         {
             return _context.Producto.Any(e => e.idProducto == id);
         }
+
+        public async Task<IActionResult> lineaBlanca()
+        {
+            return View(await this._context.Producto.ToListAsync());
+        }
     }
 }

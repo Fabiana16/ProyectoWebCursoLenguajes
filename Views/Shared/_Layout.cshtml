@@ -4,7 +4,7 @@
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>@ViewData["Title"] - ProyectoWebCursoLenguajes</title>
+        <title>@ViewData["Title"] - Distribuidora del Pacifico</title>
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
         <link rel="stylesheet" href="~/css/site.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -22,7 +22,7 @@
                         <ul class="navbar-nav flex-grow-1">
                             <li class="nav-item">
                                 <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Log in</a>
-                            </li>
+                               </li> 
                             <li class="nav-item">
                                 <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Registrarse</a>
                             </li>
@@ -38,10 +38,11 @@
                         <a class="navbar-brand" href="#"></a>
                         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                             <div class="navbar-nav">
-                                <a class="nav-item nav-link" href="#">Linea blanca</a>
-                                <a class="nav-item nav-link" href="#">Linea Tecnologica</a>
-                                <a class="nav-item nav-link" href="#">Linea Hogar</a>
-                                <a class="nav-item nav-link" href="#">Abarrotes</a>
+                                    <a class="nav-link" asp-area="" asp-controller="Producto" asp-action="lineaBlanca">Linea blanca</a>
+                                    <a class="nav-item nav-link" href="#">Linea Tecnologica</a>
+                                    <a class="nav-item nav-link" href="#">Linea Hogar</a>
+                                    <a class="nav-item nav-link" href="#">Abarrotes</a>
+                                
                             </div>
 
                             <div class="col-sm-3">
@@ -128,9 +129,22 @@
         <br />
         <br />
 
-        @*segundo row*@
-        <div class="row">
+        <div class="jumbotron jumbotron-fluid">
             <div class="container">
+                <h1 class="display-4">Hello, world!</h1>
+                <img src="~/css/img/news-6.jpg" alt="Denim Jeans">
+                <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                <hr class="my-4">
+                <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+                <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+            </div>
+        </div>
+
+
+        @*segundo row*@
+        <div class="container">
+            <div class="row">
+
                 <div class="column">
                     <div class="card">
                         <img src="~/css/img/prueba4.1.jpg" alt="Denim Jeans" style=" width:100%">
@@ -160,18 +174,163 @@
                 </div>
             </div>
         </div>
-
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
         <div class="container">
             <main role="main" class="pb-3">
                 @RenderBody()
             </main>
         </div>
 
-        <footer class="border-top footer text-muted">
+        <footer class="bg-dark text-center text-white">
+            <!-- Grid container -->
             <div class="container">
-                &copy; 2021 - Distribuidora del Pacifico - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                <!-- Section: Social media -->
+                <section class="mb-4">
+                    <!-- Facebook -->
+                    <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
+                        <i class="fa fa-facebook-f"></i>
+                    </a>
+
+                    <!-- Twitter -->
+                    <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+
+                    <!-- Google -->
+                    <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
+                        <i class="fa fa-google"></i>
+                    </a>
+
+                    <!-- Instagram -->
+                    <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
+                        <i class="fa fa-instagram"></i>
+                    </a>
+                </section>
+                <!-- Section: Social media -->
+                <!-- Section: Form -->
+                <section class="">
+                    <form action="">
+                        <!--Grid row-->
+                        <div class="row d-flex justify-content-center">
+
+                        </div>
+                        <!--Grid row-->
+                    </form>
+                </section>
+                <!-- Section: Form -->
+                <!-- Section: Text -->
+                <section class="mb-4">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
+                        repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam
+                        eum harum corrupti dicta, aliquam sequi voluptate quas.
+                    </p>
+                </section>
+                <!-- Section: Text -->
+                <!-- Section: Links -->
+                <section class="">
+                    <!--Grid row-->
+                    <div class="row">
+                        <!--Grid column-->
+                        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                            <h5 class="text-uppercase">Links</h5>
+
+                            <ul class="list-unstyled mb-0">
+                                <li>
+                                    <a href="#!" class="text-white">Link 1</a>
+                                </li>
+                                <li>
+                                    <a href="#!" class="text-white">Link 2</a>
+                                </li>
+                                <li>
+                                    <a href="#!" class="text-white">Link 3</a>
+                                </li>
+                                <li>
+                                    <a href="#!" class="text-white">Link 4</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--Grid column-->
+                        <!--Grid column-->
+                        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                            <h5 class="text-uppercase">Links</h5>
+
+                            <ul class="list-unstyled mb-0">
+                                <li>
+                                    <a href="#!" class="text-white">Link 1</a>
+                                </li>
+                                <li>
+                                    <a href="#!" class="text-white">Link 2</a>
+                                </li>
+                                <li>
+                                    <a href="#!" class="text-white">Link 3</a>
+                                </li>
+                                <li>
+                                    <a href="#!" class="text-white">Link 4</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--Grid column-->
+                        <!--Grid column-->
+                        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                            <h5 class="text-uppercase">Links</h5>
+
+                            <ul class="list-unstyled mb-0">
+                                <li>
+                                    <a href="#!" class="text-white">Link 1</a>
+                                </li>
+                                <li>
+                                    <a href="#!" class="text-white">Link 2</a>
+                                </li>
+                                <li>
+                                    <a href="#!" class="text-white">Link 3</a>
+                                </li>
+                                <li>
+                                    <a href="#!" class="text-white">Link 4</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--Grid column-->
+                        <!--Grid column-->
+                        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                            <h5 class="text-uppercase">Links</h5>
+
+                            <ul class="list-unstyled mb-0">
+                                <li>
+                                    <a href="#!" class="text-white">Link 1</a>
+                                </li>
+                                <li>
+                                    <a href="#!" class="text-white">Link 2</a>
+                                </li>
+                                <li>
+                                    <a href="#!" class="text-white">Link 3</a>
+                                </li>
+                                <li>
+                                    <a href="#!" class="text-white">Link 4</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--Grid column-->
+                    </div>
+                    <!--Grid row-->
+                </section>
+                <!-- Section: Links -->
             </div>
+            <!-- Grid container -->
+            <!-- Copyright -->
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                © 2020 Copyright:
+                <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+            </div>
+            <!-- Copyright -->
         </footer>
+        <!-- Footer -->
+
         <script src="~/lib/jquery/dist/jquery.min.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
