@@ -21,8 +21,8 @@
                     <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                         <ul class="navbar-nav flex-grow-1">
                             <li class="nav-item">
-                                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Log in</a>
-                               </li> 
+                                <a class="nav-link text-light" asp-area="" asp-controller="Producto" asp-action="Index" target="_parent">Log in</a>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Registrarse</a>
                             </li>
@@ -31,18 +31,15 @@
                 </div>
             </nav> @*nav azul*@
 
-
             <div>
                 <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-light border-bottom box-shadow mb-3">
                     <div class="container">
-                        <a class="navbar-brand" href="#"></a>
                         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                             <div class="navbar-nav">
-                                    <a class="nav-link" asp-area="" asp-controller="Producto" asp-action="lineaBlanca">Linea blanca</a>
-                                    <a class="nav-item nav-link" href="#">Linea Tecnologica</a>
-                                    <a class="nav-item nav-link" href="#">Linea Hogar</a>
-                                    <a class="nav-item nav-link" href="#">Abarrotes</a>
-                                
+                                <a class="nav-link" asp-area="" asp-controller="Producto" asp-action="lineaBlanca">Linea blanca</a>
+                                <a class="nav-link" asp-area="" asp-controller="Producto" asp-action="lineaTecnologica">Linea Tecnologica</a>
+                                <a class="nav-link" asp-area="" asp-controller="Producto" asp-action="lineaHogar">Linea Hogar</a>
+                                <a class="nav-link" asp-area="" asp-controller="Producto" asp-action="abarrotes">Abarrotes</a>
                             </div>
 
                             <div class="col-sm-3">
@@ -50,136 +47,14 @@
                                     <a href="#" class="btn btn-info btn-lg">
                                         <span class="fa fa-shopping-cart"></span>
                                     </a>
-
                                 </button>
                             </div>
                         </div>
                     </div>
                 </nav>
             </div> @*nav 2*@
-
-            <div id="demo" class="carousel slide" data-ride="carousel">
-
-                <!-- Indicators -->
-                <ul class="carousel-indicators">
-                    <li data-target="#demo" data-slide-to="0" class="active"></li>
-                    <li data-target="#demo" data-slide-to="1"></li>
-                    <li data-target="#demo" data-slide-to="2"></li>
-                </ul>
-
-                <!-- The slideshow -->
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="~/css/img/prueba3.png" alt="Los Angeles" width="1100" height="100">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="~/css/img/prueba4.jpg" alt="Chicago" width="1100" height="100">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="~/css/img/prueba4.1.jpg" alt="New York" width="1100" height="100">
-                    </div>
-                </div>
-
-                <!-- Left and right controls -->
-                <a class="carousel-control-prev" href="#demo" data-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
-                </a>
-                <a class="carousel-control-next" href="#demo" data-slide="next">
-                    <span class="carousel-control-next-icon"></span>
-                </a>
-            </div>
-            <br />
-            <br />
         </header>
-        @*<div class="productos">*@
-        <div class="row">
-            <div class="container">
-                <div class="column">
-                    <div class="card">
-                        <img src="~/css/img/prueba2.jpg" alt="Denim Jeans" style=" width:100%">
-                        <h1>Tailored Jeans</h1>
-                        <p class="price">$19.99</p>
-                        <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-                        <p><button>Add to Cart</button></p>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="card">
-                        <img src="~/css/img/prueba2.jpg" alt="Denim Jeans" style="width:100%">
-                        <h1>Tailored Jeans</h1>
-                        <p class="price">$19.99</p>
-                        <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-                        <p><button>Add to Cart</button></p>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="card">
-                        <img src="~/css/img/prueba3.png" alt="Denim Jeans" style="width:100%">
-                        <h1>Tailored Jeans</h1>
-                        <p class="price">$19.99</p>
-                        <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-                        <p><button>Add to Cart</button></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
 
-        <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-                <h1 class="display-4">Hello, world!</h1>
-                <img src="~/css/img/news-6.jpg" alt="Denim Jeans">
-                <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-                <hr class="my-4">
-                <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-                <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-            </div>
-        </div>
-
-
-        @*segundo row*@
-        <div class="container">
-            <div class="row">
-
-                <div class="column">
-                    <div class="card">
-                        <img src="~/css/img/prueba4.1.jpg" alt="Denim Jeans" style=" width:100%">
-                        <h1>Tailored Jeans</h1>
-                        <p class="price">$19.99</p>
-                        <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-                        <p><button>Add to Cart</button></p>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="card">
-                        <img src="~/css/img/prueba2.jpg" alt="Denim Jeans" style="width:100%">
-                        <h1>Tailored Jeans</h1>
-                        <p class="price">$19.99</p>
-                        <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-                        <p><button>Add to Cart</button></p>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="card">
-                        <img src="~/css/img/prueba4.jpg" alt="Denim Jeans" style="width:100%">
-                        <h1>Tailored Jeans</h1>
-                        <p class="price">$19.99</p>
-                        <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-                        <p><button>Add to Cart</button></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
         <div class="container">
             <main role="main" class="pb-3">
                 @RenderBody()
@@ -187,43 +62,43 @@
         </div>
 
         <footer class="bg-dark text-center text-white">
-            <!-- Grid container -->
+             @*Grid container*@ 
             <div class="container">
-                <!-- Section: Social media -->
+                 @*Section: Social media*@ 
                 <section class="mb-4">
-                    <!-- Facebook -->
+                     @*Facebook*@ 
                     <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
                         <i class="fa fa-facebook-f"></i>
                     </a>
 
-                    <!-- Twitter -->
+                     @*Twitter*@ 
                     <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
                         <i class="fa fa-twitter"></i>
                     </a>
 
-                    <!-- Google -->
+                     @*Google*@ 
                     <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
                         <i class="fa fa-google"></i>
                     </a>
 
-                    <!-- Instagram -->
+                     @*Instagram*@ 
                     <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
                         <i class="fa fa-instagram"></i>
                     </a>
                 </section>
-                <!-- Section: Social media -->
-                <!-- Section: Form -->
+                 @*Section: Social media 
+                 Section: Form*@ 
                 <section class="">
                     <form action="">
-                        <!--Grid row-->
+                        @*Grid row*@
                         <div class="row d-flex justify-content-center">
 
                         </div>
-                        <!--Grid row-->
+                        @*Grid row*@
                     </form>
                 </section>
-                <!-- Section: Form -->
-                <!-- Section: Text -->
+                 @*Section: Form 
+                 Section: Text*@ 
                 <section class="mb-4">
                     <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
@@ -231,12 +106,12 @@
                         eum harum corrupti dicta, aliquam sequi voluptate quas.
                     </p>
                 </section>
-                <!-- Section: Text -->
-                <!-- Section: Links -->
+                 @*Section: Text 
+                 Section: Links*@ 
                 <section class="">
-                    <!--Grid row-->
+                    @*Grid row*@
                     <div class="row">
-                        <!--Grid column-->
+                        @*Grid column*@
                         <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
                             <h5 class="text-uppercase">Links</h5>
 
@@ -255,8 +130,8 @@
                                 </li>
                             </ul>
                         </div>
-                        <!--Grid column-->
-                        <!--Grid column-->
+                        @*Grid column
+                        Grid column*@
                         <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
                             <h5 class="text-uppercase">Links</h5>
 
@@ -275,8 +150,8 @@
                                 </li>
                             </ul>
                         </div>
-                        <!--Grid column-->
-                        <!--Grid column-->
+                        @*Grid column
+                        Grid column*@
                         <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
                             <h5 class="text-uppercase">Links</h5>
 
@@ -295,8 +170,8 @@
                                 </li>
                             </ul>
                         </div>
-                        <!--Grid column-->
-                        <!--Grid column-->
+                        @*Grid column
+                        Grid column*@
                         <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
                             <h5 class="text-uppercase">Links</h5>
 
@@ -315,21 +190,21 @@
                                 </li>
                             </ul>
                         </div>
-                        <!--Grid column-->
+                        @*Grid column*@
                     </div>
-                    <!--Grid row-->
+                    @*Grid row*@
                 </section>
-                <!-- Section: Links -->
+                 @*Section: Links*@ 
             </div>
-            <!-- Grid container -->
-            <!-- Copyright -->
+             @*Grid container*@ 
+             @*Copyright*@ 
             <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
                 © 2020 Copyright:
                 <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
             </div>
-            <!-- Copyright -->
+             @*Copyright*@ 
         </footer>
-        <!-- Footer -->
+         @*Footer*@ 
 
         <script src="~/lib/jquery/dist/jquery.min.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

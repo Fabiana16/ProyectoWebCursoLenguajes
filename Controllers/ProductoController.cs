@@ -154,5 +154,20 @@ namespace ProyectoWebCursoLenguajes.Controllers
         {
             return View(await this._context.Producto.ToListAsync());
         }
+
+        public async Task<IActionResult> lineaTecnologica()
+        {
+            return View(await this._context.Producto.ToListAsync());
+        }
+
+        public async Task<IActionResult> lineaHogar()
+        {
+            return View(await this._context.Producto.ToListAsync());
+        }
+
+        public async Task<IActionResult> abarrotes()
+        {
+            return View(await this._context.Producto.ToListAsync());
+        }
     }
 }
