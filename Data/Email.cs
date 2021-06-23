@@ -24,7 +24,7 @@ namespace ProyectoWebCursoLenguajes.Data
 			MemoryStream memoryStream = new MemoryStream();
 			PdfWriter writer = PdfWriter.GetInstance(doc, memoryStream);
 
-			//Abrir el documento para su escritura 
+			//Abrir el documento para su escritura.. 
 			doc.Open();
 
 			//Tipos de fuentes del documento.
