@@ -11,13 +11,13 @@ using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.IO;
 using Microsoft.AspNetCore.Mvc;
-
+using ProyectoWebCursoLenguajes.Models;
 
 namespace ProyectoWebCursoLenguajes.Data
 {
     public class Email
     {
-		public void enviarFactura()
+		public void enviarFactura(Cliente cliente)
 		{
 			//Creación de la variable documento
 			var doc = new Document();
@@ -43,7 +43,7 @@ namespace ProyectoWebCursoLenguajes.Data
 			doc.Close();
 			memoryStream.Position = 0;
 
-			MailMessage mm = new MailMessage("distribucionesdelpacificocr@gmail.com", "henoly70@gmail.com")
+			MailMessage mm = new MailMessage("distribucionesdelpacificocr@gmail.com", cliente.email)
 			{
 				Subject = "Detalles de Factura de Compra",
 				IsBodyHtml = true,
