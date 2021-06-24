@@ -65,5 +65,10 @@ namespace ProyectoWebCursoLenguajes.Controllers
 
         }
 
+        public IActionResult Carrito()
+        {
+            return View();
+        }
+
     }
 }
