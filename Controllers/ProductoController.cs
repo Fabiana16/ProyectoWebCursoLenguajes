@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using ProyectoWebCursoLenguajes.Data;
 using ProyectoWebCursoLenguajes.Models;
 
@@ -12,11 +14,13 @@ namespace ProyectoWebCursoLenguajes.Controllers
 {
     public class ProductoController : Controller
     {
+
         private readonly ProyectoWebCursoLenguajesContext _context;
 
         public ProductoController(ProyectoWebCursoLenguajesContext context)
         {
             _context = context;
+           
         }
 
         // GET: Producto
@@ -169,5 +173,7 @@ namespace ProyectoWebCursoLenguajes.Controllers
         {
             return View(await this._context.Producto.ToListAsync());
         }
+
+
     }
 }
