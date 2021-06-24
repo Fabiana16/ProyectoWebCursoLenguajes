@@ -15,6 +15,7 @@ using ProyectoWebCursoLenguajes.Models;
 
 namespace ProyectoWebCursoLenguajes.Data
 {
+
     public class Email
     {
 
