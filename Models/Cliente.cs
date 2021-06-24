@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -8,8 +8,8 @@ namespace ProyectoWebCursoLenguajes.Models
 {
     public class Cliente
     {
-        [key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
+        
         public int idCliente { get; set; }
 
         public string cedula { get; set; }
