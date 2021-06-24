@@ -17,6 +17,7 @@ namespace ProyectoWebCursoLenguajes.Data
 {
     public class Email
     {
+
 		public void enviarFactura(Cliente cliente)
 		{
 			//Creación de la variable documento
