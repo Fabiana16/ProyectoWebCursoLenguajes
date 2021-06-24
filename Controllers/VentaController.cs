@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProyectoWebCursoLenguajes.Controllers
 {
-    public class Venta : Controller
+    public class VentaController : Controller
     {
       
 
@@ -20,7 +20,7 @@ namespace ProyectoWebCursoLenguajes.Controllers
 
         //variable para usar el contexto
         ProyectoWebCursoLenguajesContext cnt;
-        public Venta(ProyectoWebCursoLenguajesContext context)
+        public VentaController(ProyectoWebCursoLenguajesContext context)
         {
             this.cnt = context;
         }
