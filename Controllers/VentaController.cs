@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Net.Http;
 using Newtonsoft.Json;
+using Microsoft.EntityFrameworkCore;
 
 namespace ProyectoWebCursoLenguajes.Controllers
 {
@@ -71,12 +72,12 @@ namespace ProyectoWebCursoLenguajes.Controllers
         }
 
         [HttpGet]
-        public void anadirCarrito(int? id)
+        public  ActionResult anadirCarrito(int? id)
         {
             try
             {
                 Carrito carrito = new Carrito();
-                var producto = cnt.Producto.FirstOrDefault( m => m.idProducto == id);
+                var producto =  cnt.Producto.FirstOrDefault( m => m.idProducto == id);
                 carrito.idProducto = producto.idProducto;
                 carrito.codigoBarra = producto.codigoBarra;
                 carrito.descripcion = producto.descripcion;
@@ -87,14 +88,17 @@ namespace ProyectoWebCursoLenguajes.Controllers
                 carrito.estado = producto.estado;
                 cnt.Carrito.Add(carrito);
                 cnt.SaveChanges();
+                return RedirectToAction("Index", "Home");
 
-               
             }
+
+            
             catch (Exception ex)
             {
 
                 throw ex;
             }
+            
 
         }
     }

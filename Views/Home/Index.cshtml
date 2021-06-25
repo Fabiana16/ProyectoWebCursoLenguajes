@@ -63,12 +63,12 @@
                         anadir
                     </button>*@
 
-                    <button class="btn btn-info" type="button" asp-route-id="5"
-                            onclick="location.href='@Url.Action("anadirCarrito", "Venta")'">anadir</button>
+                    @*<a href="" class="btn btn-info" type="button" asp-route-id="5" asp-controller="Venta" asp-action="añadirCarrito"></a>*@
+                            
 
 
 
-                        <a class="btn btn-dark btn-sm mr-1 mb-2" asp-area="" asp-controller="Venta" asp-action="anadirCarrito">
+                        <a class="btn btn-dark btn-sm mr-1 mb-2" asp-area="" asp-controller="Venta" asp-action="anadirCarrito" asp-route-id="1">
                             <i class="fa fa-info-circle pr-2"></i>
                         </a>
                 </div>
