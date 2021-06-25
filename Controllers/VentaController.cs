@@ -70,13 +70,25 @@ namespace ProyectoWebCursoLenguajes.Controllers
             return View();
         }
 
-        [HttpPost]
+        [HttpGet]
         public void anadirCarrito(int? id)
         {
             try
             {
+                Carrito carrito = new Carrito();
                 var producto = cnt.Producto.FirstOrDefault( m => m.idProducto == id);
-                this.cnt.
+                carrito.idProducto = producto.idProducto;
+                carrito.codigoBarra = producto.codigoBarra;
+                carrito.descripcion = producto.descripcion;
+                carrito.precioCompra = producto.precioCompra;
+                carrito.porcentajeImpuesto = producto.porcentajeImpuesto;
+                carrito.unidadMedida = producto.unidadMedida;
+                carrito.precioVenta = producto.precioVenta;
+                carrito.estado = producto.estado;
+                cnt.Carrito.Add(carrito);
+                cnt.SaveChanges();
+
+               
             }
             catch (Exception ex)
             {

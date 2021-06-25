@@ -17,5 +17,7 @@ namespace ProyectoWebCursoLenguajes.Data
         public DbSet<ProyectoWebCursoLenguajes.Models.Producto> Producto { get; set; }
 
         public DbSet<ProyectoWebCursoLenguajes.Models.Proveedor> Proveedor { get; set; }
+
+        public DbSet<ProyectoWebCursoLenguajes.Models.Carrito> Carrito { get; set; }
     }
 }

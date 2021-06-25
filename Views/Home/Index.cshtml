@@ -57,12 +57,20 @@
                     <h1>Secadora para Cabello</h1>
                     <p class="price">$19.99</p>
                     <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-                    <a class="btn btn-dark btn-sm mr-1 mb-2" asp-area="" asp-controller="Venta" asp-action="Carrito">
-                        <i class="fa fa-shopping-cart grey-text pr-2"></i>
-                    </a>
-                    <a class="btn btn-dark btn-sm mr-1 mb-2" asp-area="" asp-controller="Producto" asp-action="abarrotes">
-                        <i class="fa fa-info-circle pr-2"></i>
-                    </a>
+
+
+                    @*<button type="button" class="btn btn-default btn-lg" asp-controller="Venta" asp-action="anadirCarrito" asp-route-id="5">
+                        anadir
+                    </button>*@
+
+                    <button class="btn btn-info" type="button" asp-route-id="5"
+                            onclick="location.href='@Url.Action("anadirCarrito", "Venta")'">anadir</button>
+
+
+
+                        <a class="btn btn-dark btn-sm mr-1 mb-2" asp-area="" asp-controller="Venta" asp-action="anadirCarrito">
+                            <i class="fa fa-info-circle pr-2"></i>
+                        </a>
                 </div>
             </div>
             <div class="column">
@@ -71,10 +79,10 @@
                     <h1>Tailored Jeans</h1>
                     <p class="price">$19.99</p>
                     <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-                    <a class="btn btn-dark btn-sm mr-1 mb-2" asp-area="" asp-controller="Producto" asp-action="abarrotes">
+                    <a class="btn btn-dark btn-sm mr-1 mb-2" asp-area="" asp-controller="Venta" asp-action="anadirCarrito">
                         <i class="fa fa-shopping-cart grey-text pr-2"></i>
                     </a>
-                    <a class="btn btn-dark btn-sm mr-1 mb-2" asp-area="" asp-controller="Producto" asp-action="abarrotes">
+                    <a class="btn btn-dark btn-sm mr-1 mb-2" asp-area="" asp-controller="Venta" asp-action="anadirCarrito">
                         <i class="fa fa-info-circle pr-2"></i>
                     </a>
                 </div>
@@ -85,10 +93,10 @@
                     <h1>Tailored Jeans</h1>
                     <p class="price">$19.99</p>
                     <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-                    <a class="btn btn-dark btn-sm mr-1 mb-2" asp-area="" asp-controller="Producto" asp-action="abarrotes">
+                    <a class="btn btn-dark btn-sm mr-1 mb-2" asp-area="" asp-controller="Venta" asp-action="anadirCarrito">
                         <i class="fa fa-shopping-cart grey-text pr-2"></i>
                     </a>
-                    <a class="btn btn-dark btn-sm mr-1 mb-2" asp-area="" asp-controller="Producto" asp-action="abarrotes">
+                    <a class="btn btn-dark btn-sm mr-1 mb-2" asp-area="" asp-controller="Venta" asp-action="anadirCarrito">
                         <i class="fa fa-info-circle pr-2"></i>
                     </a>
                 </div>
@@ -126,10 +134,10 @@
                     <h1>Tailored Jeans</h1>
                     <p class="price">$19.99</p>
                     <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-                    <a class="btn btn-dark btn-sm mr-1 mb-2" asp-area="" asp-controller="Producto" asp-action="abarrotes">
+                    <a class="btn btn-dark btn-sm mr-1 mb-2" asp-area="" asp-controller="Venta" asp-action="anadirCarrito">
                         <i class="fa fa-shopping-cart grey-text pr-2"></i>
                     </a>
-                    <a class="btn btn-dark btn-sm mr-1 mb-2" asp-area="" asp-controller="Producto" asp-action="abarrotes">
+                    <a class="btn btn-dark btn-sm mr-1 mb-2" asp-area="" asp-controller="Venta" asp-action="anadirCarrito">
                         <i class="fa fa-info-circle pr-2"></i>
                     </a>
                 </div>
@@ -140,10 +148,10 @@
                     <h1>Tailored Jeans</h1>
                     <p class="price">$19.99</p>
                     <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-                    <a class="btn btn-dark btn-sm mr-1 mb-2" asp-area="" asp-controller="Producto" asp-action="abarrotes">
+                    <a class="btn btn-dark btn-sm mr-1 mb-2" asp-area="" asp-controller="Venta" asp-action="anadirCarrito">
                         <i class="fa fa-shopping-cart grey-text pr-2"></i>
                     </a>
-                    <a class="btn btn-dark btn-sm mr-1 mb-2" asp-area="" asp-controller="Producto" asp-action="abarrotes">
+                    <a class="btn btn-dark btn-sm mr-1 mb-2" asp-area="" asp-controller="Venta" asp-action="anadirCarrito">
                         <i class="fa fa-info-circle pr-2"></i>
                     </a>
                 </div>
@@ -154,10 +162,10 @@
                     <h1>Tailored Jeans</h1>
                     <p class="price">$19.99</p>
                     <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-                    <a class="btn btn-dark btn-sm mr-1 mb-2" asp-area="" asp-controller="Producto" asp-action="abarrotes">
+                    <a class="btn btn-primary btn-sm mr-1 mb-2" asp-area="" asp-controller="Venta" asp-action="anadirCarrito">
                         <i class="fa fa-shopping-cart grey-text pr-2"></i>
                     </a>
-                    <a class="btn btn-dark btn-sm mr-1 mb-2" asp-area="" asp-controller="Producto" asp-action="abarrotes">
+                    <a class="btn btn-dark btn-sm mr-1 mb-2" asp-area="" asp-controller="Venta" asp-action="anadirCarrito">
                         <i class="fa fa-info-circle pr-2"></i>
                     </a>
                 </div>
