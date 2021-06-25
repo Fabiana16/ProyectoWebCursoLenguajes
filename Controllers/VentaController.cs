@@ -98,8 +98,13 @@ namespace ProyectoWebCursoLenguajes.Controllers
 
                 throw ex;
             }
-            
+        }
 
+        [HttpGet]
+
+        public ActionResult factura()
+        {
+            return View();
         }
     }
 }
