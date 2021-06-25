@@ -28,6 +28,8 @@ namespace ProyectoWebCursoLenguajes.Models
 		public char estado { get; set; }
 
 		public string categoria { get; set; }
-	}
+
+        public string foto { get; set; }
+    }
 }
 

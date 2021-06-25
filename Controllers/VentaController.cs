@@ -87,6 +87,7 @@ namespace ProyectoWebCursoLenguajes.Controllers
                 carrito.precioVenta = producto.precioVenta;
                 carrito.estado = producto.estado;
                 carrito.categoria = producto.categoria;
+                carrito.foto = producto.foto;
                 cnt.Carrito.Add(carrito);
                 cnt.SaveChanges();
                 return RedirectToAction("Index", "Home");
