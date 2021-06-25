@@ -26,6 +26,7 @@ namespace ProyectoWebCursoLenguajes.Models
 		public decimal precioVenta { get; set; }
 
 		public char estado { get; set; }
+
 		public string categoria { get; set; }
 	}
 }
