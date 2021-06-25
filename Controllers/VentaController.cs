@@ -12,7 +12,7 @@ namespace ProyectoWebCursoLenguajes.Controllers
 {
     public class VentaController : Controller
     {
-      
+
 
         //variable para usar la api clientes
         private ClienteAPI clienteApi;
@@ -70,6 +70,20 @@ namespace ProyectoWebCursoLenguajes.Controllers
             return View();
         }
 
+        [HttpPost]
+        public void anadirCarrito(int? id)
+        {
+            try
+            {
+                var producto = cnt.Producto.FirstOrDefault( m => m.idProducto == id);
+                this.cnt.
+            }
+            catch (Exception ex)
+            {
 
+                throw ex;
+            }
+
+        }
     }
 }
