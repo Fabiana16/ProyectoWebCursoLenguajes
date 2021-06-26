@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-//using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace ProyectoWebCursoLenguajes.Models
 {
-    public class Producto
-    {
+	public class Carrito
+	{
 		[Key]
-		//[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+
+		public int idCarrito { get; set; }
 		public int idProducto { get; set; }
 
 		public int codigoBarra { get; set; }
@@ -27,8 +27,9 @@ namespace ProyectoWebCursoLenguajes.Models
 
 		public char estado { get; set; }
 
-        public string categoria { get; set; }
+		public string categoria { get; set; }
 
-		public string foto { get; set; }
+        public string foto { get; set; }
     }
 }
+
