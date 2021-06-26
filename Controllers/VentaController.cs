@@ -14,7 +14,6 @@ namespace ProyectoWebCursoLenguajes.Controllers
     public class VentaController : Controller
     {
 
-
         //variable para usar la api clientes
         private ClienteAPI clienteApi;
 
@@ -66,11 +65,6 @@ namespace ProyectoWebCursoLenguajes.Controllers
 
         }
 
-        public IActionResult Carrito()
-        {
-            return View();
-        }
-
         [HttpGet]
         public  ActionResult anadirCarrito(int? id)
         {
@@ -108,5 +102,19 @@ namespace ProyectoWebCursoLenguajes.Controllers
         {
             return View();
         }
+        //este metodo retorna la lista de objetos del carrito
+        public  IActionResult Carrito()
+        {
+            return View(cnt.Carrito.ToList());
+        }
+
+        public  IActionResult DeleteConfirmed(int? id)
+        {
+            var carrito =  cnt.Carrito.FirstOrDefault(m => m.idProducto == id);
+            cnt.Carrito.Remove(carrito);
+             cnt.SaveChanges();
+            return RedirectToAction(nameof(Carrito));
+        }
+
     }
 }
