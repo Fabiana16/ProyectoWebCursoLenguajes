@@ -13,7 +13,7 @@ namespace ProyectoWebCursoLenguajes.Controllers
 {
     public class VentaController : Controller
     {
-
+        
         //variable para usar la api clientes
         private ClienteAPI clienteApi;
 
@@ -27,7 +27,9 @@ namespace ProyectoWebCursoLenguajes.Controllers
         {
             this.cnt = context;
 
-            this.extraerCliente();
+            //this.extraerCliente();
+
+            //this.prueba();
         }
         public IActionResult Index()
         {
@@ -65,6 +67,7 @@ namespace ProyectoWebCursoLenguajes.Controllers
 
         }
 
+        //metodo que agrega los productos a la tabla carrito
         [HttpGet]
         public  ActionResult anadirCarrito(int? id)
         {
@@ -85,48 +88,77 @@ namespace ProyectoWebCursoLenguajes.Controllers
                 cnt.Carrito.Add(carrito);
                 cnt.SaveChanges();
                 return RedirectToAction("Index", "Home");
-
             }
-
-            
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }
 
         [HttpGet]
 
+        //retorna vista factura
         public ActionResult factura()
         {
             return View();
         }
-        //este metodo retorna la lista de objetos del carrito
+
+        //este metodo retorna el modelo CarritoVista 
+        //es el modelo que puede contener todo los valores necesarios para la vista carrito
+        //ejemplo: cantidad, subtotal, etc.
         public  IActionResult Carrito()
         {
-            //CarritoVista carritoVista = new CarritoVista();
-            //Carrito carrito = new Carrito();
+            CarritoVista carritoVista = new CarritoVista();
+            List<Carrito> carritoArray =  cnt.Carrito.ToList();
+            List<CarritoVista> carritoVistaArray = new List<CarritoVista>();
+            foreach (var item in carritoArray)
+            {
+                carritoVista.idCarrito = item.idCarrito;
+                carritoVista.idProducto = item.idProducto;
+                carritoVista.descripcion = item.descripcion;
+                carritoVista.codigoBarra = item.codigoBarra;
+                carritoVista.precioCompra = item.precioCompra;
+                carritoVista.porcentajeImpuesto = item.porcentajeImpuesto;
+                carritoVista.unidadMedida = item.unidadMedida;
+                carritoVista.precioVenta = item.precioVenta;// podria considerar quitarse
+                carritoVista.estado = item.estado;
+                carritoVista.categoria = item.categoria;
+                carritoVista.foto = item.foto;
+                carritoVistaArray.Add(carritoVista);
 
-            //List<Carrito> lista = new List<Carrito>();
-            //var tamanioCarrito = cnt.Carrito.ToList().length
-            //for (int i = 0; i < cnt.Carrito.ToList().length; i++)
-            //{
+            }
+            //valores para la compra
+            carritoVista.cantidad = 0;
+            carritoVista.subtotal = 0;
+            carritoVista.subtotalIva = 0;
+            carritoVista.subtotalEnvio = 0;
+            carritoVista.precioFinal = 0;
+            carritoVistaArray.Add(carritoVista);
 
-            //}
-            return View(cnt.Carrito.ToList());
+            return View(carritoVistaArray.ToList());
         }
 
-        public List<Carrito> retornaLista()
-        {
-            return cnt.Carrito.ToList();
-        }
+        //public IActionResult Carrito()
+        //{
+        //    return View(cnt.Carrito.ToList());
+        //}
         public  IActionResult DeleteConfirmed(int? id)
         {
             var carrito =  cnt.Carrito.FirstOrDefault(m => m.idProducto == id);
             cnt.Carrito.Remove(carrito);
              cnt.SaveChanges();
             return RedirectToAction(nameof(Carrito));
+        }
+
+        //este metodo es el que estoy usando de prueba en vista para cantidad 
+        //aun no sirve
+        public decimal calculo (int cant)
+        {
+            
+            cant = 3;
+            decimal cantidad = cant;
+
+            return cantidad;
         }
         
         
