@@ -1,10 +1,14 @@
-﻿
-@{
-    ViewData["Title"] = "Linea Tecnológica";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+﻿@model IEnumerable<ProyectoWebCursoLenguajes.Models.Producto>
 
-<h1>lineaTecnologica</h1>
+    @{
+        ViewData["Title"] = "Linea Tecnológica";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+<head>
+    <meta charset="utf-8" />
+
+</head>
+
 
 <body>
     <!-- Jumbotron -->
@@ -32,32 +36,30 @@
 
     </div>
     <!--<!-- Jumbotron -->
+    <div class="container">
+        <div class="row">
 
-    <div class="container my-5">
-
-
-        <!--Section: Content-->
-        <section class="dark-grey-text text-center">
-
-            <!-- Section heading -->
-            <h3 class="font-weight-bold mb-4 pb-2">Our bestsellers</h3>
-            <!-- Section description -->
-            <p class="grey-text w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit fugit, error amet numquam iure provident voluptate esse quasi nostrum quisquam eum porro a pariatur veniam.</p>
-
-            <!-- Grid row -->
-            <div class="row">
-
-                <!-- Grid column -->
+            @foreach (var item in Model)
+            {
+                <!--card-->
+                <!--Section: Content-->
                 <div class="col-lg-3 col-md-6 mb-4">
+                    <!-- Section heading -->
+                    <h3 class="font-weight-bold mb-4 pb-2">Our bestsellers</h3>
+                    <!-- Section description -->
+                    <p class="grey-text w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit fugit, error amet numquam iure provident voluptate esse quasi nostrum quisquam eum porro a pariatur veniam.</p>
+
+                    <!-- Grid row -->
+                    @*<div class="row">*@
+
+                    <!-- Grid column -->
                     <!-- Card -->
                     <div class="card card-cascade narrower card-ecommerce">
                         <!-- Card image -->
-                        <div class="view view-cascade overlay">
-                            <img src="~/css/img/news-6.jpg" class="card-img-top"
+                        <div>
+                            <img src=@Html.DisplayFor(a => item.foto) class="card-img-top"
                                  alt="sample photo">
-                            <a>
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
+
                         </div>
                         <!-- Card image -->
                         <!-- Card content -->
@@ -65,7 +67,7 @@
                             <!-- Title -->
                             <h5 class="card-title mb-1">
                                 <strong>
-                                    <a href="">Denim trousers</a>
+                                    <a href="">@Html.DisplayFor(a => item.descripcion)</a>
                                 </strong>
                             </h5>
                             <!-- Description -->
@@ -90,348 +92,18 @@
                         <!-- Card content -->
                     </div>
                     <!-- Card -->
-                </div>
+                </div><!--column-->
                 <!-- Grid column -->
-                <!-- Grid column -->
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <!-- Card -->
-                    <div class="card card-cascade narrower card-ecommerce">
-                        <!-- Card image -->
-                        <div class="view view-cascade overlay">
-                            <img src="~/css/img/news-6.jpg" class="card-img-top"
-                                 alt="sample photo">
-                            <a>
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-                        <!-- Card image -->
-                        <!-- Card content -->
-                        <div class="card-body card-body-cascade text-center pb-3">
-                            <!-- Title -->
-                            <h5 class="card-title mb-1">
-                                <strong>
-                                    <a href="">High heels</a>
-                                </strong>
-                            </h5>
-                            <!-- Description -->
-                            <p class="card-text">
-                                Neque porro quisquam est, qui dolorem ipsum quia dolor sit.
-                            </p>
-                            <!-- Card footer -->
-                            <div class="card-footer px-1">
-                                <span class="float-center">
+                @*</div>*@
+                <!-- Grid row -->
+            }
 
 
-                                    <button type="button" class="btn btn-primary btn-sm mr-1 mb-2">
-                                        <i class="fa fa-shopping-cart grey-text pr-2"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-light btn-sm mr-1 mb-2">
-                                        <i class="fa fa-info-circle pr-2"></i>
-                                    </button>
-                                </span>
-                            </div>
-                        </div>
-                        <!-- Card content -->
-                    </div>
-                    <!-- Card -->
-                </div>
-                <!-- Grid column -->
-                <!-- Grid column -->
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <!-- Card -->
-                    <div class="card card-cascade narrower card-ecommerce">
-                        <!-- Card image -->
-                        <div class="view view-cascade overlay">
-                            <img src="~/css/img/news-6.jpg" class="card-img-top"
-                                 alt="sample photo">
-                            <a>
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-                        <!-- Card image -->
-                        <!-- Card content -->
-                        <div class="card-body card-body-cascade text-center pb-3">
-                            <!-- Title -->
-                            <h5 class="card-title mb-1">
-                                <strong>
-                                    <a href="">Brown coat</a>
-                                </strong>
-                            </h5>
-
-                            <!-- Description -->
-                            <p class="card-text">
-                                Neque porro quisquam est, qui dolorem ipsum quia dolor sit.
-                            </p>
-                            <!-- Card footer -->
-                            <div class="card-footer px-1">
-                                <span class="float-center">
+        </div><!--m5-->
+        </div>
+   <!--foreach-->
 
 
-                                    <button type="button" class="btn btn-primary btn-sm mr-1 mb-2">
-                                        <i class="fa fa-shopping-cart grey-text pr-2"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-light btn-sm mr-1 mb-2">
-                                        <i class="fa fa-info-circle pr-2"></i>
-                                    </button>
-                                </span>
-                            </div>
-                        </div>
-                        <!-- Card content -->
-                    </div>
-                    <!-- Card -->
-                </div>
-                <!-- Grid column -->
-                <!-- Grid column -->
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <!-- Card -->
-                    <div class="card card-cascade narrower card-ecommerce">
-                        <!-- Card image -->
-                        <div class="view view-cascade overlay">
-                            <img src="~/css/img/news-6.jpg" class="card-img-top"
-                                 alt="sample photo">
-                            <a>
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-                        <!-- Card image -->
-                        <!-- Card content -->
-                        <div class="card-body card-body-cascade text-center pb-3">
-                            <!-- Title -->
-                            <h5 class="card-title mb-1">
-                                <strong>
-                                    <a href="">Shirt</a>
-                                </strong>
-                            </h5>
 
-                            <!-- Description -->
-                            <p class="card-text">
-                                Neque porro quisquam est, qui dolorem ipsum quia dolor sit.
-                            </p>
-                            <!-- Card footer -->
-                            <div class="card-footer px-1">
-                                <span class="float-center">
-
-
-                                    <button type="button" class="btn btn-primary btn-sm mr-1 mb-2">
-                                        <i class="fa fa-shopping-cart grey-text pr-2"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-light btn-sm mr-1 mb-2">
-                                        <i class="fa fa-info-circle pr-2"></i>
-                                    </button>
-                                </span>
-                            </div>
-                        </div>
-                        <!-- Card content -->
-                    </div>
-                    <!-- Card -->
-                </div>
-                <!-- Grid column -->
-
-            </div>
-            <!-- Grid row -->
-
-        </section>
-        <!--Section: Content-->
-    </div>
-
-    <div class="container my-5">
-
-
-        <!--Section: Content-->
-        <section class="dark-grey-text text-center">
-
-            <!-- Section heading -->
-            <h3 class="font-weight-bold mb-4 pb-2">Our bestsellers</h3>
-            <!-- Section description -->
-            <p class="grey-text w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit fugit, error amet numquam iure provident voluptate esse quasi nostrum quisquam eum porro a pariatur veniam.</p>
-
-            <!-- Grid row -->
-            <div class="row">
-
-                <!-- Grid column -->
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <!-- Card -->
-                    <div class="card card-cascade narrower card-ecommerce">
-                        <!-- Card image -->
-                        <div class="view view-cascade overlay">
-                            <img src="~/css/img/news-6.jpg" class="card-img-top"
-                                 alt="sample photo">
-                            <a>
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-                        <!-- Card image -->
-                        <!-- Card content -->
-                        <div class="card-body card-body-cascade text-center pb-3">
-                            <!-- Title -->
-                            <h5 class="card-title mb-1">
-                                <strong>
-                                    <a href="">Denim trousers</a>
-                                </strong>
-                            </h5>
-                            <!-- Description -->
-                            <p class="card-text">
-                                Neque porro quisquam est, qui dolorem ipsum quia dolor sit.
-                            </p>
-                            <!-- Card footer -->
-                            <div class="card-footer px-1">
-
-                                <span class="float-center">
-
-
-                                    <button type="button" class="btn btn-primary btn-sm mr-1 mb-2">
-                                        <i class="fa fa-shopping-cart grey-text pr-2"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-light btn-sm mr-1 mb-2">
-                                        <i class="fa fa-info-circle pr-2"></i>
-                                    </button>
-                                </span>
-                            </div>
-                        </div>
-                        <!-- Card content -->
-                    </div>
-                    <!-- Card -->
-                </div>
-                <!-- Grid column -->
-                <!-- Grid column -->
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <!-- Card -->
-                    <div class="card card-cascade narrower card-ecommerce">
-                        <!-- Card image -->
-                        <div class="view view-cascade overlay">
-                            <img src="~/css/img/news-6.jpg" class="card-img-top"
-                                 alt="sample photo">
-                            <a>
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-                        <!-- Card image -->
-                        <!-- Card content -->
-                        <div class="card-body card-body-cascade text-center pb-3">
-                            <!-- Title -->
-                            <h5 class="card-title mb-1">
-                                <strong>
-                                    <a href="">High heels</a>
-                                </strong>
-                            </h5>
-                            <!-- Description -->
-                            <p class="card-text">
-                                Neque porro quisquam est, qui dolorem ipsum quia dolor sit.
-                            </p>
-                            <!-- Card footer -->
-                            <div class="card-footer px-1">
-                                <span class="float-center">
-
-
-                                    <button type="button" class="btn btn-primary btn-sm mr-1 mb-2">
-                                        <i class="fa fa-shopping-cart grey-text pr-2"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-light btn-sm mr-1 mb-2">
-                                        <i class="fa fa-info-circle pr-2"></i>
-                                    </button>
-                                </span>
-                            </div>
-                        </div>
-                        <!-- Card content -->
-                    </div>
-                    <!-- Card -->
-                </div>
-                <!-- Grid column -->
-                <!-- Grid column -->
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <!-- Card -->
-                    <div class="card card-cascade narrower card-ecommerce">
-                        <!-- Card image -->
-                        <div class="view view-cascade overlay">
-                            <img src="~/css/img/news-6.jpg" class="card-img-top"
-                                 alt="sample photo">
-                            <a>
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-                        <!-- Card image -->
-                        <!-- Card content -->
-                        <div class="card-body card-body-cascade text-center pb-3">
-                            <!-- Title -->
-                            <h5 class="card-title mb-1">
-                                <strong>
-                                    <a href="">Brown coat</a>
-                                </strong>
-                            </h5>
-
-                            <!-- Description -->
-                            <p class="card-text">
-                                Neque porro quisquam est, qui dolorem ipsum quia dolor sit.
-                            </p>
-                            <!-- Card footer -->
-                            <div class="card-footer px-1">
-                                <span class="float-center">
-
-
-                                    <button type="button" class="btn btn-primary btn-sm mr-1 mb-2">
-                                        <i class="fa fa-shopping-cart grey-text pr-2"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-light btn-sm mr-1 mb-2">
-                                        <i class="fa fa-info-circle pr-2"></i>
-                                    </button>
-                                </span>
-                            </div>
-                        </div>
-                        <!-- Card content -->
-                    </div>
-                    <!-- Card -->
-                </div>
-                <!-- Grid column -->
-                <!-- Grid column -->
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <!-- Card -->
-                    <div class="card card-cascade narrower card-ecommerce">
-                        <!-- Card image -->
-                        <div class="view view-cascade overlay">
-                            <img src="~/css/img/news-6.jpg" class="card-img-top"
-                                 alt="sample photo">
-                            <a>
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-                        <!-- Card image -->
-                        <!-- Card content -->
-                        <div class="card-body card-body-cascade text-center pb-3">
-                            <!-- Title -->
-                            <h5 class="card-title mb-1">
-                                <strong>
-                                    <a href="">Shirt</a>
-                                </strong>
-                            </h5>
-
-                            <!-- Description -->
-                            <p class="card-text">
-                                Neque porro quisquam est, qui dolorem ipsum quia dolor sit.
-                            </p>
-                            <!-- Card footer -->
-                            <div class="card-footer px-1">
-                                <span class="float-center">
-
-
-                                    <button type="button" class="btn btn-primary btn-sm mr-1 mb-2">
-                                        <i class="fa fa-shopping-cart grey-text pr-2"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-light btn-sm mr-1 mb-2">
-                                        <i class="fa fa-info-circle pr-2"></i>
-                                    </button>
-                                </span>
-                            </div>
-                        </div>
-                        <!-- Card content -->
-                    </div>
-                    <!-- Card -->
-                </div>
-                <!-- Grid column -->
-
-            </div>
-            <!-- Grid row -->
-
-        </section>
-        <!--Section: Content-->
-    </div>
-</body>
+    </body>
+    
