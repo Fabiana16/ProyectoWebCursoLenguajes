@@ -105,9 +105,22 @@ namespace ProyectoWebCursoLenguajes.Controllers
         //este metodo retorna la lista de objetos del carrito
         public  IActionResult Carrito()
         {
+            //CarritoVista carritoVista = new CarritoVista();
+            //Carrito carrito = new Carrito();
+
+            //List<Carrito> lista = new List<Carrito>();
+            //var tamanioCarrito = cnt.Carrito.ToList().length
+            //for (int i = 0; i < cnt.Carrito.ToList().length; i++)
+            //{
+
+            //}
             return View(cnt.Carrito.ToList());
         }
 
+        public List<Carrito> retornaLista()
+        {
+            return cnt.Carrito.ToList();
+        }
         public  IActionResult DeleteConfirmed(int? id)
         {
             var carrito =  cnt.Carrito.FirstOrDefault(m => m.idProducto == id);
@@ -115,6 +128,7 @@ namespace ProyectoWebCursoLenguajes.Controllers
              cnt.SaveChanges();
             return RedirectToAction(nameof(Carrito));
         }
-
+        
+        
     }
 }
