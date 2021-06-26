@@ -80,30 +80,56 @@
                                 <div class="card-footer px-1">
 
                                     <span class="float-center">
-
-
                                         <button type="button" class="btn btn-primary btn-sm mr-1 mb-2">
                                             <i class="fa fa-shopping-cart grey-text pr-2"></i>
                                         </button>
-                                        <button type="button" class="btn btn-light btn-sm mr-1 mb-2">
+                                        <button type="button" class="btn btn-light btn-sm mr-1 mb-2" data-toggle="modal" data-target="#exampleModal">
                                             <i class="fa fa-info-circle pr-2"></i>
                                         </button>
+
                                     </span>
+
                                 </div>
                             </div>
+
                             <!-- Card content -->
                         </div>
+
                         <!-- Card -->
                     </div><!--column-->
                     <!-- Grid column -->
                     @*</div>*@
                     <!-- Grid row -->
                 }
-            }
+
+            }<!--for-->>
 
 
-        </div><!--m5-->
+        </div><!--row-->
+    </div><!--container-->
+    <!-- Button trigger modal -->
+   
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
         </div>
-   <!--foreach-->
-    </body>
+    </div>
+
+</body>
     

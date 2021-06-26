@@ -18,3 +18,7 @@ function myFunction() {
     var x = document.getElementById("cantidad");
     document.getElementById("demo").innerHTML = "You selected: " + x.value;
 }
+
+$('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+})
