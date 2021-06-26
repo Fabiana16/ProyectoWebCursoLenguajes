@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ProyectoWebCursoLenguajes.Controllers
 {
+
     public class VentaController : Controller
     {
 
