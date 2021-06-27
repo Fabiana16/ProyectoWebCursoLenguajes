@@ -286,6 +286,9 @@ namespace ProyectoWebCursoLenguajes.Controllers
             return View(await this._context.Producto.ToListAsync());
         }
 
-
+        public async Task<IActionResult> productosDisponibles()
+        {
+            return View(await this._context.Producto.ToListAsync());
+        }
     }
 }

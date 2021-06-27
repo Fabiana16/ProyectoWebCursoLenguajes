@@ -24,5 +24,7 @@ namespace ProyectoWebCursoLenguajes.Models
 		public int contacto { get; set; }
 
 		public string email { get; set; }
-	}
+
+        public int idProducto { get; set; }
+    }
 }

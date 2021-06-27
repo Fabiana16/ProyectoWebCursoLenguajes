@@ -56,7 +56,7 @@
 
                         <!-- Grid column -->
                         <!-- Card -->
-                        <div class="card card-cascade narrower card-ecommerce">
+                        <div class="card ">
                             <!-- Card image -->
                             <div>
                                 <img src=@Html.DisplayFor(a => item.foto) class="card-img-top"
@@ -77,18 +77,16 @@
                                     Neque porro quisquam est, qui dolorem ipsum quia dolor sit.
                                 </p>
                                 <!-- Card footer -->
-                                <div class="card-footer px-1">
+                                <div class="card-footer">
 
                                     <span class="float-center">
-                                        <button type="button" class="btn btn-primary btn-sm mr-1 mb-2">
+                                        <a class="btn btn-dark btn-sm mr-1 mb-2" asp-area="" asp-controller="Venta" asp-action="anadirCarrito" asp-route-id="@item.idProducto">
                                             <i class="fa fa-shopping-cart grey-text pr-2"></i>
-                                        </button>
-                                        <button type="button" class="btn btn-light btn-sm mr-1 mb-2" data-toggle="modal" data-target="#exampleModal">
+                                        </a>
+                                        <a href="#" role="button" class="btn btn-light" data-toggle="modal" data-target="#P-@item.idProducto">
                                             <i class="fa fa-info-circle pr-2"></i>
-                                        </button>
-
+                                        </a>
                                     </span>
-
                                 </div>
                             </div>
 
@@ -102,34 +100,44 @@
                     <!-- Grid row -->
                 }
 
-            }<!--for-->>
+            }<!--for-->
 
 
         </div><!--row-->
     </div><!--container-->
     <!-- Button trigger modal -->
-   
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+
+    @foreach (var item in Model)
+    {
+        if (item.categoria == "Linea Tecnologica")
+        {
+            <!-- Modal -->
+            <div id="P-@item.idProducto" class="modal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <strong>
+                                <a href="">@Html.DisplayFor(a => item.descripcion)</a>
+                            </strong>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
+        }
+    }
+
 
 </body>
     

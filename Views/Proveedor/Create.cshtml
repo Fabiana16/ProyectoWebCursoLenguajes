@@ -44,6 +44,16 @@
                 <span asp-validation-for="email" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="idProducto" class="control-label"></label>
+                <a class="btn btn-info btn-sm mr-1 mb-2 text-light" asp-area="" asp-controller="Producto" asp-action="productosDisponibles">
+                    Ver Productos
+                </a>
+                <input asp-for="idProducto" class="form-control" />
+                <span asp-validation-for="idProducto" class="text-danger">
+                </span>
+
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
