@@ -56,15 +56,12 @@ namespace ProyectoWebCursoLenguajes.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("idProveedor,cedulaLegal,nombreCompleto,telefono,direccionExacta,contacto,email,idProducto")] Proveedor proveedor)
         {
-
-            if (ModelState.IsValid)
-            {
-                _context.Add(proveedor);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-               
-                
-            }
+                if (ModelState.IsValid)
+                {
+                    _context.Add(proveedor);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
             return View(proveedor);
         }
 
