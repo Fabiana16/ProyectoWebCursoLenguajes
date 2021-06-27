@@ -51,6 +51,9 @@
                 <input asp-for="idProducto" class="form-control" />
                 <span asp-validation-for="idProducto" class="text-danger">
                 </span>
+                @*<select class="custom-select" id="prueba">
+                    
+                </select>*@
 
             </div>
             <div class="form-group">
@@ -67,3 +70,21 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+@*<script>
+    var producto = new Producto();
+    producto.getElementById();
+    function fillDropdownPasswordExpiration($formSettings) {
+        let text = ["1 Semana", "2 Semanas", "1 Mes", "2 Meses", "3 Meses", "Nunca"];
+        let value = ["1,'weak'", "2,'weak'", "1,'months'", "2,'months'", "2,'months'", "0,'days'"];
+        let select = document.getElementById("prueba");
+        for (let i = 0; i < text.length; i++) {
+            let opc = document.createElement("option");
+            opc.id = text[i];
+            opc.value = text[i];
+            opc.text = text[i];
+            select.add(opc);
+        }
+    }
+    fillDropdownPasswordExpiration();
+</script>*@

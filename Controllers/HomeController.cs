@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Logging;
 using ProyectoWebCursoLenguajes.Models;
 using System;
@@ -33,5 +34,15 @@ namespace ProyectoWebCursoLenguajes.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        //public ActionResult llenarSelect()
+        //{
+        //    using (Models.)
+        //    {
+
+        //    }
+        //    List<PruebaSelect> lst = from d in PruebaSelect 
+        //    return View();
+        //}
     }
 }

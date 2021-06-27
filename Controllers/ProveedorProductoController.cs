@@ -10,22 +10,26 @@ using ProyectoWebCursoLenguajes.Models;
 
 namespace ProyectoWebCursoLenguajes.Controllers
 {
-    public class ProveedorController : Controller
+    public class ProveedorProductoController : Controller
     {
         private readonly ProyectoWebCursoLenguajesContext _context;
 
-        public ProveedorController(ProyectoWebCursoLenguajesContext context)
+        public ProveedorProductoController(ProyectoWebCursoLenguajesContext context)
         {
             _context = context;
         }
-
-        // GET: Proveedor
-        public async Task<IActionResult> Index()
+        public ProveedorProductoController()
         {
-            return View(await _context.Proveedor.ToListAsync());
+
         }
 
-        // GET: Proveedor/Details/5
+        // GET: ProveedorProductoes
+        public async Task<IActionResult> Index()
+        {
+            return View(await _context.ProveedorProducto.ToListAsync());
+        }
+
+        // GET: ProveedorProductoes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,42 +37,38 @@ namespace ProyectoWebCursoLenguajes.Controllers
                 return NotFound();
             }
 
-            var proveedor = await _context.Proveedor
+            var proveedorProducto = await _context.ProveedorProducto
                 .FirstOrDefaultAsync(m => m.idProveedor == id);
-            if (proveedor == null)
+            if (proveedorProducto == null)
             {
                 return NotFound();
             }
 
-            return View(proveedor);
+            return View(proveedorProducto);
         }
 
-        // GET: Proveedor/Create
+        // GET: ProveedorProductoes/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Proveedor/Create
+        // POST: ProveedorProductoes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("idProveedor,cedulaLegal,nombreCompleto,telefono,direccionExacta,contacto,email,idProducto")] Proveedor proveedor)
+        public void Create([Bind("idProveedor,idProducto")] ProveedorProducto proveedorProducto)
         {
-
             if (ModelState.IsValid)
             {
-                _context.Add(proveedor);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-               
-                
+                _context.Add(proveedorProducto);
+                _context.SaveChangesAsync();  
             }
-            return View(proveedor);
+            
         }
 
-        // GET: Proveedor/Edit/5
+        // GET: ProveedorProductoes/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -76,22 +76,22 @@ namespace ProyectoWebCursoLenguajes.Controllers
                 return NotFound();
             }
 
-            var proveedor = await _context.Proveedor.FindAsync(id);
-            if (proveedor == null)
+            var proveedorProducto = await _context.ProveedorProducto.FindAsync(id);
+            if (proveedorProducto == null)
             {
                 return NotFound();
             }
-            return View(proveedor);
+            return View(proveedorProducto);
         }
 
-        // POST: Proveedor/Edit/5
+        // POST: ProveedorProductoes/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("idProveedor,cedulaLegal,nombreCompleto,telefono,direccionExacta,contacto,email,idProducto")] Proveedor proveedor)
+        public async Task<IActionResult> Edit(int id, [Bind("idProveedor,idProducto")] ProveedorProducto proveedorProducto)
         {
-            if (id != proveedor.idProveedor)
+            if (id != proveedorProducto.idProveedor)
             {
                 return NotFound();
             }
@@ -100,12 +100,12 @@ namespace ProyectoWebCursoLenguajes.Controllers
             {
                 try
                 {
-                    _context.Update(proveedor);
+                    _context.Update(proveedorProducto);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ProveedorExists(proveedor.idProveedor))
+                    if (!ProveedorProductoExists(proveedorProducto.idProveedor))
                     {
                         return NotFound();
                     }
@@ -116,10 +116,10 @@ namespace ProyectoWebCursoLenguajes.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(proveedor);
+            return View(proveedorProducto);
         }
 
-        // GET: Proveedor/Delete/5
+        // GET: ProveedorProductoes/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -127,32 +127,30 @@ namespace ProyectoWebCursoLenguajes.Controllers
                 return NotFound();
             }
 
-            var proveedor = await _context.Proveedor
+            var proveedorProducto = await _context.ProveedorProducto
                 .FirstOrDefaultAsync(m => m.idProveedor == id);
-            if (proveedor == null)
+            if (proveedorProducto == null)
             {
                 return NotFound();
             }
 
-            return View(proveedor);
+            return View(proveedorProducto);
         }
 
-        // POST: Proveedor/Delete/5
+        // POST: ProveedorProductoes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var proveedor = await _context.Proveedor.FindAsync(id);
-            _context.Proveedor.Remove(proveedor);
+            var proveedorProducto = await _context.ProveedorProducto.FindAsync(id);
+            _context.ProveedorProducto.Remove(proveedorProducto);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ProveedorExists(int id)
+        private bool ProveedorProductoExists(int id)
         {
-            return _context.Proveedor.Any(e => e.idProveedor == id);
+            return _context.ProveedorProducto.Any(e => e.idProveedor == id);
         }
-
-       
     }
 }

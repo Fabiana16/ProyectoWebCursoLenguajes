@@ -37,6 +37,11 @@ namespace ProyectoWebCursoLenguajes.Controllers
             return View(await _context.Producto.ToListAsync());
         }
 
+        public List<Producto> getAll()
+        {
+            return _context.Producto.ToList();
+        }
+
         // GET: Producto/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -290,5 +295,7 @@ namespace ProyectoWebCursoLenguajes.Controllers
         {
             return View(await this._context.Producto.ToListAsync());
         }
+
+       
     }
 }
