@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using Newtonsoft.Json;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
 
 namespace ProyectoWebCursoLenguajes.Controllers
 {
@@ -67,12 +68,12 @@ namespace ProyectoWebCursoLenguajes.Controllers
         }
 
         [HttpGet]
-        public  ActionResult anadirCarrito(int? id)
+        public ActionResult anadirCarrito(int? id)
         {
             try
             {
                 Carrito carrito = new Carrito();
-                var producto =  cnt.Producto.FirstOrDefault( m => m.idProducto == id);
+                var producto = cnt.Producto.FirstOrDefault(m => m.idProducto == id);
                 carrito.idProducto = producto.idProducto;
                 carrito.codigoBarra = producto.codigoBarra;
                 carrito.descripcion = producto.descripcion;
@@ -89,7 +90,7 @@ namespace ProyectoWebCursoLenguajes.Controllers
 
             }
 
-            
+
             catch (Exception ex)
             {
 
@@ -104,7 +105,7 @@ namespace ProyectoWebCursoLenguajes.Controllers
             return View();
         }
         //este metodo retorna la lista de objetos del carrito
-        public  IActionResult Carrito()
+        public IActionResult Carrito()
         {
             //CarritoVista carritoVista = new CarritoVista();
             //Carrito carrito = new Carrito();
@@ -122,14 +123,20 @@ namespace ProyectoWebCursoLenguajes.Controllers
         {
             return cnt.Carrito.ToList();
         }
-        public  IActionResult DeleteConfirmed(int? id)
+        public IActionResult DeleteConfirmed(int? id)
         {
-            var carrito =  cnt.Carrito.FirstOrDefault(m => m.idProducto == id);
+            var carrito = cnt.Carrito.FirstOrDefault(m => m.idProducto == id);
             cnt.Carrito.Remove(carrito);
-             cnt.SaveChanges();
+            cnt.SaveChanges();
             return RedirectToAction(nameof(Carrito));
         }
-        
-        
+
+        [HttpPost]
+        public async Task<IActionResult> crearFatura(List<IFormFile> files, [Bind("idCliente, fecha, idFactura, cedula, nombreCompleto, telefono, direccion, email, idUsuario, subtotal, montoTotal, cantidad, descuento, porcentaje")] ResumenFactura resumenFactura)
+        {
+            await cnt.SaveChangesAsync();
+            return View(resumenFactura);
+
+        }
     }
 }
