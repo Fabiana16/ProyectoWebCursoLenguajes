@@ -1,0 +1,34 @@
+﻿@model ProyectoWebCursoLenguajes.Models.ProveedorProducto
+
+@{
+    ViewData["Title"] = "Eliminar Proveedor-Producto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h3>¿Estás seguro que quieres eliminar este proveedor?</h3>
+<hr/>
+<div>
+    <h5>Detalle del Proveedor-Producto</h5>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.idProveedor)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.idProveedor)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.idProducto)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.idProducto)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="idProveedor" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        <a asp-action="Index">Regresar a la Lista</a>
+    </form>
+</div>
