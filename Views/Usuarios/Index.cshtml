@@ -5,11 +5,15 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Detalle de Usuarios</h1>
+<h1>Inicio</h1>
+<hr />
 
 <table class="table">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.idUsuario)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.login)
             </th>
@@ -28,6 +32,9 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.idUsuario)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.login)
             </td>
