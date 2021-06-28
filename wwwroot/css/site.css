@@ -6,7 +6,7 @@ for details on configuring this project to bundle and minify static web assets. 
     max-width: 100px;
     margin: auto;
     text-align: center;
-    font-family: 'Lucida Calligraphy';
+    font-family: Arial;
 }
 
 .card-img-top {
@@ -70,13 +70,13 @@ a {
   color: #0366d6;
 }
 
-/*.productos {
+.productos {
     
     width: 900px;
     border: 15px ;
     padding: 10px;
     margin: 100px;
-}*/
+}
 
 .btn-primary {
   color: #fff;

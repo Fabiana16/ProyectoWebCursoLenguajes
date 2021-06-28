@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿
+using Microsoft.AspNetCore.Mvc;
 using ProyectoWebCursoLenguajes.Data;
 using ProyectoWebCursoLenguajes.Models;
 using System;
@@ -108,7 +109,8 @@ namespace ProyectoWebCursoLenguajes.Controllers
             return View();
         }
         //este metodo retorna la lista de objetos del carrito
-        public  IActionResult Carrito()
+        [HttpGet]
+        public IActionResult Carrito()
         {
             CarritoVista carritoVista = new CarritoVista();
             List<Carrito> carritoArray = cnt.Carrito.ToList();
@@ -140,18 +142,33 @@ namespace ProyectoWebCursoLenguajes.Controllers
             return View(carritoVistaArray.ToList());
         }
 
-        public List<Carrito> retornaLista()
-        {
-            return cnt.Carrito.ToList();
-        }
-        public  IActionResult DeleteConfirmed(int? id)
+        public IActionResult DeleteConfirmed(int? id)
         {
             var carrito = cnt.Carrito.FirstOrDefault(m => m.idProducto == id);
             cnt.Carrito.Remove(carrito);
             cnt.SaveChanges();
             return RedirectToAction(nameof(Carrito));
         }
-        
-        
+
+
+        public IActionResult Calcular(int id)
+        {
+            int cantidad = id;
+
+            return RedirectToAction(nameof(Carrito));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> crearFatura(List<IFormFile> files, [Bind("idCliente, fecha, idFactura, cedula, nombreCompleto, telefono, direccion, email, idUsuario, subtotal, montoTotal, cantidad, descuento, porcentaje")] ResumenFactura resumenFactura)
+        {
+            await cnt.SaveChangesAsync();
+            return View(resumenFactura);
+
+        }
+
     }
 }
+
+
+
+    

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ProyectoWebCursoLenguajes.Models.Carrito>
+﻿@model IEnumerable<ProyectoWebCursoLenguajes.Models.CarritoVista>
 
 
 @{
@@ -17,7 +17,7 @@
 </div>
 
 @*FOR para mostrar la lista de productos de Carrito*@
-
+@*<form asp-action="Calcular" enctype="multipart/form-data" method="post">*@
 @{int contador = 1;}
 @foreach (var item in Model)
 {
@@ -38,16 +38,35 @@
                         <p class="mb-3 text-muted text-uppercase small">Codigo:  @Html.DisplayFor(modelItem => item.idProducto)</p>
                     </div>
                     <div>
+                        @{ int prueba = 23; }
                         <div class="def-number-input number-input safari_only mb-0 w-100">
                             <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
                                     class="fa fa-minus btn btn-light btn-lg"></button>
-                            <input class="quantity" min="0" name="quantity" value="1" type="number">
+                            @*<input class="quantity" min="0" name="quantity" value="1" type="number">*@
+                            <a input id="@prueba" asp-route-id="@prueba" asp-action="Calcular" asp-controller="Venta">
+                                <input id="@prueba" @*class="quantity"*@ min="0" name="@prueba" value="1" type="number">
+                            </a>
+
+
+                            @*<div class="form-group">
+                                    <label asp-for="@item.idProducto" class="control-label"></label>
+                                    <input asp-for="@item.idProducto" class="form-control" />
+                                    <span asp-validation-for="@item.idProducto" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="@item.idProducto" class="control-label"></label>
+                                    <input asp-for="@item.idProducto" class="form-control" />
+                                    <span asp-validation-for="@item.idProducto" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" value="Create" class="btn btn-primary" />
+                                </div>*@
+
                             <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
                                     class="fa fa-plus btn btn-light btn-lg"></button>
-                            <input class="quantity" min="0" name="quantity" value="1" type="number">
                         </div>
                         <small id="passwordHelpBlock" class="form-text text-muted text-center">
-                            Cantidad seleccionadas
+                            Cantidad seleccionadas @prueba
                         </small>
                     </div>
                 </div>
@@ -127,26 +146,4 @@
     </div>
     <!-- Card -->
 
-</div>
-
-<!-- Card -->
-<!-- Card -->
-<div class="mb-3">
-    <div class="pt-4">
-
-        <h5 class="mb-4">Se aceptan</h5>
-
-        <img class="mr-2" width="45px"
-             src="https://mdbootstrap.com/wp-content/plugins/woocommerce-gateway-stripe/assets/images/visa.svg"
-             alt="Visa">
-        <img class="mr-2" width="45px"
-             src="https://mdbootstrap.com/wp-content/plugins/woocommerce-gateway-stripe/assets/images/amex.svg"
-             alt="American Express">
-        <img class="mr-2" width="45px"
-             src="https://mdbootstrap.com/wp-content/plugins/woocommerce-gateway-stripe/assets/images/mastercard.svg"
-             alt="Mastercard">
-        <img class="mr-2" width="45px"
-             src="https://mdbootstrap.com/wp-content/plugins/woocommerce/includes/gateways/paypal/assets/images/paypal.png"
-             alt="PayPal acceptance mark">
-    </div>
 </div>
