@@ -4,7 +4,7 @@ for details on configuring this project to bundle and minify static web assets. 
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     max-width: 350px;
-    height: 80vh;
+    height: 90vh;
     margin: auto;
     text-align: center;
     font-family: Arial;
