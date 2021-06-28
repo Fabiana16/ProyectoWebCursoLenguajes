@@ -30,7 +30,10 @@ namespace ProyectoWebCursoLenguajes.Controllers
             this.cnt = context;
 
             this.extraerCliente();
+
+
         }
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
@@ -105,38 +108,50 @@ namespace ProyectoWebCursoLenguajes.Controllers
             return View();
         }
         //este metodo retorna la lista de objetos del carrito
-        public IActionResult Carrito()
+        public  IActionResult Carrito()
         {
-            //CarritoVista carritoVista = new CarritoVista();
-            //Carrito carrito = new Carrito();
+            CarritoVista carritoVista = new CarritoVista();
+            List<Carrito> carritoArray = cnt.Carrito.ToList();
+            List<CarritoVista> carritoVistaArray = new List<CarritoVista>();
+            foreach (var item in carritoArray)
+            {
+                carritoVista.idCarrito = item.idCarrito;
+                carritoVista.idProducto = item.idProducto;
+                carritoVista.descripcion = item.descripcion;
+                carritoVista.codigoBarra = item.codigoBarra;
+                carritoVista.precioCompra = item.precioCompra;
+                carritoVista.porcentajeImpuesto = item.porcentajeImpuesto;
+                carritoVista.unidadMedida = item.unidadMedida;
+                carritoVista.precioVenta = item.precioVenta;// podria considerar quitarse
+                carritoVista.estado = item.estado;
+                carritoVista.categoria = item.categoria;
+                carritoVista.foto = item.foto;
+                carritoVistaArray.Add(carritoVista);
 
-            //List<Carrito> lista = new List<Carrito>();
-            //var tamanioCarrito = cnt.Carrito.ToList().length
-            //for (int i = 0; i < cnt.Carrito.ToList().length; i++)
-            //{
+            }
+            //valores para la compra
+            carritoVista.cantidad = 0;
+            carritoVista.subtotal = 0;
+            carritoVista.subtotalIva = 0;
+            carritoVista.subtotalEnvio = 0;
+            carritoVista.precioFinal = 0;
+            carritoVistaArray.Add(carritoVista);
 
-            //}
-            return View(cnt.Carrito.ToList());
+            return View(carritoVistaArray.ToList());
         }
 
         public List<Carrito> retornaLista()
         {
             return cnt.Carrito.ToList();
         }
-        public IActionResult DeleteConfirmed(int? id)
+        public  IActionResult DeleteConfirmed(int? id)
         {
             var carrito = cnt.Carrito.FirstOrDefault(m => m.idProducto == id);
             cnt.Carrito.Remove(carrito);
             cnt.SaveChanges();
             return RedirectToAction(nameof(Carrito));
         }
-
-        [HttpPost]
-        public async Task<IActionResult> crearFatura(List<IFormFile> files, [Bind("idCliente, fecha, idFactura, cedula, nombreCompleto, telefono, direccion, email, idUsuario, subtotal, montoTotal, cantidad, descuento, porcentaje")] ResumenFactura resumenFactura)
-        {
-            await cnt.SaveChangesAsync();
-            return View(resumenFactura);
-
-        }
+        
+        
     }
 }
