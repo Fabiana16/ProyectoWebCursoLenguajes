@@ -10,13 +10,16 @@ using System.Net.Http;
 using Newtonsoft.Json;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http;
+using System.Text.Json;
+
+using System.Net.Http.Json;
 
 namespace ProyectoWebCursoLenguajes.Controllers
 {
 
     public class VentaController : Controller
     {
-
+        //Factura facturaForm;
         //variable para usar la api clientes
         private ClienteAPI clienteApi;
 
@@ -30,14 +33,62 @@ namespace ProyectoWebCursoLenguajes.Controllers
         {
             this.cnt = context;
 
-            this.extraerCliente();
-
+            //this.extraerCliente();
+            //this.agregarCliente();
 
         }
         [HttpGet]
         public IActionResult Index()
         {
             return View();
+        }
+
+        //este metodo se tiene que terminar aun
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult>  traerClient([Bind("cedula,nombreCompleto,telefono,direccion,email,metodoPago,numeroCheque,banco")] ResumenFactura resumen)
+        {
+            Email email = new Email();
+            var guardar = "";
+            var id = 0;
+            
+            Cliente client = new Cliente();
+            
+            if (resumen.numeroCheque == 0) 
+            {
+                resumen.numeroCheque = 0;
+            }
+            if (resumen.banco == null)
+            {
+                resumen.banco = "";
+            }
+
+            var url = "https://localhost:44332/api/clientes/agregar";
+            var json = new JsonSerializerOptions() { PropertyNameCaseInsensitive = true };
+            client.cedula = resumen.cedula;
+            client.nombreCompleto = resumen.nombreCompleto;
+            client.telefono = resumen.telefono;
+            client.direccion = resumen.direccion;
+            client.email = resumen.email;
+            using (var httpclient = new HttpClient()) 
+            {
+                var response = await httpclient.PostAsJsonAsync(url, client);
+            
+            if (response.IsSuccessStatusCode)
+            {
+                guardar = await response.Content.ReadAsStringAsync();
+                 id = Int32.Parse(guardar);
+            }
+           }
+            
+            //this.facturaForm.idCliente = id;
+            //this.facturaForm.idUsuario = 2;
+            //this.facturaForm.metodoPago = resumen.metodoPago;
+            //this.facturaForm.montoTotal = 20000;
+            //this.facturaForm.descuento = 0;
+            //cnt.Add(this.facturaForm);
+            //cnt.SaveChanges();
+            return View(resumen);
         }
 
         //metodo para traer un cliente de la api
@@ -52,10 +103,9 @@ namespace ProyectoWebCursoLenguajes.Controllers
                 //se obtiene el objeto de la api
                 HttpClient cliente = this.clienteApi.Inicial();
 
-                //aqui se extrae el usuario que se ocupa desde la api.
-                //el 1 es el id del usuario que se esta pidiendo.
-                HttpResponseMessage response = await cliente.GetAsync("api/clientes/1");
 
+                HttpResponseMessage response = await cliente.GetAsync("api/clientes/1");
+                
                 if (response.IsSuccessStatusCode)
                 {
                     var resultado = response.Content.ReadAsStringAsync().Result;

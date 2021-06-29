@@ -21,5 +21,9 @@ namespace ProyectoWebCursoLenguajes.Models
         public string metodoPago { get; set; }
 
         public decimal descuento { get; set; }
+
+        public int numeroCheque { get; set; }
+
+        public string banco { get; set; }
     }
 }

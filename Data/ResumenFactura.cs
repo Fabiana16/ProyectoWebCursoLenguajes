@@ -22,7 +22,6 @@ namespace ProyectoWebCursoLenguajes.Data
         public decimal descuento { get; set; }
         public decimal porcentajeImpuesto { get; set; }
         public string metodoPago { get; set; }
-
         public int numeroCheque { get; set; }
         public string banco { get; set; }
 
