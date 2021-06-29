@@ -216,6 +216,12 @@ namespace ProyectoWebCursoLenguajes.Controllers
 
         }
 
+
+        public IActionResult verSubtotal() 
+        {
+            return View();
+        }
+
     }
 }
 
