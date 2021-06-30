@@ -1,5 +1,4 @@
-﻿
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using ProyectoWebCursoLenguajes.Data;
 using ProyectoWebCursoLenguajes.Models;
 using System;
@@ -46,15 +45,15 @@ namespace ProyectoWebCursoLenguajes.Controllers
         //este metodo se tiene que terminar aun
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult>  traerClient([Bind("cedula,nombreCompleto,telefono,direccion,email,metodoPago,numeroCheque,banco")] ResumenFactura resumen)
+        public async Task<ActionResult> traerClient([Bind("cedula,nombreCompleto,telefono,direccion,email,metodoPago,numeroCheque,banco")] ResumenFactura resumen)
         {
             Email email = new Email();
             var guardar = "";
             var id = 0;
-            
+
             Cliente client = new Cliente();
-            
-            if (resumen.numeroCheque == 0) 
+
+            if (resumen.numeroCheque == 0)
             {
                 resumen.numeroCheque = 0;
             }
@@ -70,17 +69,17 @@ namespace ProyectoWebCursoLenguajes.Controllers
             client.telefono = resumen.telefono;
             client.direccion = resumen.direccion;
             client.email = resumen.email;
-            using (var httpclient = new HttpClient()) 
+            using (var httpclient = new HttpClient())
             {
                 var response = await httpclient.PostAsJsonAsync(url, client);
-            
-            if (response.IsSuccessStatusCode)
-            {
-                guardar = await response.Content.ReadAsStringAsync();
-                 id = Int32.Parse(guardar);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    guardar = await response.Content.ReadAsStringAsync();
+                    id = Int32.Parse(guardar);
+                }
             }
-           }
-            
+
             //this.facturaForm.idCliente = id;
             //this.facturaForm.idUsuario = 2;
             //this.facturaForm.metodoPago = resumen.metodoPago;
@@ -105,7 +104,7 @@ namespace ProyectoWebCursoLenguajes.Controllers
 
 
                 HttpResponseMessage response = await cliente.GetAsync("api/clientes/1");
-                
+
                 if (response.IsSuccessStatusCode)
                 {
                     var resultado = response.Content.ReadAsStringAsync().Result;
@@ -126,70 +125,82 @@ namespace ProyectoWebCursoLenguajes.Controllers
         {
             try
             {
-                Carrito carrito = new Carrito();
+                var productoAgregado = cnt.Carrito.FirstOrDefault(m => m.idProducto == id);
+
                 var producto = cnt.Producto.FirstOrDefault(m => m.idProducto == id);
-                carrito.idProducto = producto.idProducto;
-                carrito.codigoBarra = producto.codigoBarra;
-                carrito.descripcion = producto.descripcion;
-                carrito.precioCompra = producto.precioCompra;
-                carrito.porcentajeImpuesto = producto.porcentajeImpuesto;
-                carrito.unidadMedida = producto.unidadMedida;
-                carrito.precioVenta = producto.precioVenta;
-                carrito.estado = producto.estado;
-                carrito.categoria = producto.categoria;
-                carrito.foto = producto.foto;
-                cnt.Carrito.Add(carrito);
-                cnt.SaveChanges();
-                return RedirectToAction("Index", "Home");
+                var categoriaVista = producto.categoria;
+                if (productoAgregado == null)
+                {
+                    Carrito carrito = new Carrito();
+                    carrito.idProducto = producto.idProducto;
+                    carrito.codigoBarra = producto.codigoBarra;
+                    carrito.descripcion = producto.descripcion;
+                    carrito.precioCompra = producto.precioCompra;
+                    carrito.porcentajeImpuesto = producto.porcentajeImpuesto;
+                    carrito.unidadMedida = producto.unidadMedida;
+                    carrito.precioVenta = producto.precioVenta;
+                    carrito.estado = producto.estado;
+                    carrito.categoria = producto.categoria;
+                    carrito.foto = producto.foto;
+                    cnt.Carrito.Add(carrito);
+                    cnt.SaveChanges();
+
+                }
+                if (categoriaVista == "Linea Blanca")
+                {
+                    return RedirectToAction("lineaBlanca", "Producto");
+                }
+                if (categoriaVista == "Linea Hogar")
+                {
+                    return RedirectToAction("lineaHogar", "Producto");
+                }
+                if (categoriaVista == "Linea Tecnologica")
+                {
+                    return RedirectToAction("lineaTecnologica", "Producto");
+                }
+                if (categoriaVista == "Abarrotes")
+                {
+                    return RedirectToAction("abarrotes", "Producto");
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+
 
             }
-
-
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }
 
         [HttpGet]
-
         public ActionResult factura()
         {
             return View();
         }
-        //este metodo retorna la lista de objetos del carrito
+
+
         [HttpGet]
-        public IActionResult Carrito()
+        public ActionResult Carrito()
         {
-            CarritoVista carritoVista = new CarritoVista();
             List<Carrito> carritoArray = cnt.Carrito.ToList();
-            List<CarritoVista> carritoVistaArray = new List<CarritoVista>();
-            foreach (var item in carritoArray)
+            return View(carritoArray.ToList());
+        }
+
+        [HttpPost]
+        public ActionResult Carrito(List<Carrito> productos)
+        {
+            List<Carrito> carritoArray = cnt.Carrito.ToList();
+
+            foreach (Carrito carrito in carritoArray)
             {
-                carritoVista.idCarrito = item.idCarrito;
-                carritoVista.idProducto = item.idProducto;
-                carritoVista.descripcion = item.descripcion;
-                carritoVista.codigoBarra = item.codigoBarra;
-                carritoVista.precioCompra = item.precioCompra;
-                carritoVista.porcentajeImpuesto = item.porcentajeImpuesto;
-                carritoVista.unidadMedida = item.unidadMedida;
-                carritoVista.precioVenta = item.precioVenta;// podria considerar quitarse
-                carritoVista.estado = item.estado;
-                carritoVista.categoria = item.categoria;
-                carritoVista.foto = item.foto;
-                carritoVistaArray.Add(carritoVista);
 
+                System.Diagnostics.Debug.WriteLine(carrito.unidadMedida);
+                System.Diagnostics.Debug.WriteLine(carrito);
             }
-            //valores para la compra
-            carritoVista.cantidad = 0;
-            carritoVista.subtotal = 0;
-            carritoVista.subtotalIva = 0;
-            carritoVista.subtotalEnvio = 0;
-            carritoVista.precioFinal = 0;
-            carritoVistaArray.Add(carritoVista);
-
-            return View(carritoVistaArray.ToList());
+            return RedirectToAction("Carrito", "Venta");
         }
 
         public IActionResult DeleteConfirmed(int? id)
@@ -217,7 +228,7 @@ namespace ProyectoWebCursoLenguajes.Controllers
         }
 
 
-        public IActionResult verSubtotal() 
+        public IActionResult verSubtotal()
         {
             return View();
         }
@@ -227,4 +238,4 @@ namespace ProyectoWebCursoLenguajes.Controllers
 
 
 
-    
+

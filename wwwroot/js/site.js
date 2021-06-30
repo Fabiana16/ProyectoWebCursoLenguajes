@@ -36,3 +36,5 @@ function carg(elemento) {
         banco.disabled = true;
     }
 }
+
+$('.alert').alert()
