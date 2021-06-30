@@ -125,8 +125,7 @@ namespace ProyectoWebCursoLenguajes.Controllers
         {
             try
             {
-                var productoAgregado = cnt.Carrito.FirstOrDefault(m => m.idProducto == id);
-
+                Carrito carrito = new Carrito();
                 var producto = cnt.Producto.FirstOrDefault(m => m.idProducto == id);
                 var categoriaVista = producto.categoria;
                 if (productoAgregado == null)
@@ -145,30 +144,9 @@ namespace ProyectoWebCursoLenguajes.Controllers
                     cnt.Carrito.Add(carrito);
                     cnt.SaveChanges();
 
-                }
-                if (categoriaVista == "Linea Blanca")
-                {
-                    return RedirectToAction("lineaBlanca", "Producto");
-                }
-                if (categoriaVista == "Linea Hogar")
-                {
-                    return RedirectToAction("lineaHogar", "Producto");
-                }
-                if (categoriaVista == "Linea Tecnologica")
-                {
-                    return RedirectToAction("lineaTecnologica", "Producto");
-                }
-                if (categoriaVista == "Abarrotes")
-                {
-                    return RedirectToAction("abarrotes", "Producto");
-                }
-                else
-                {
-                    return RedirectToAction("Index", "Home");
-                }
-
-
             }
+
+
             catch (Exception ex)
             {
                 throw ex;
@@ -183,24 +161,35 @@ namespace ProyectoWebCursoLenguajes.Controllers
 
 
         [HttpGet]
-        public ActionResult Carrito()
+        public IActionResult Carrito()
         {
             List<Carrito> carritoArray = cnt.Carrito.ToList();
-            return View(carritoArray.ToList());
-        }
-
-        [HttpPost]
-        public ActionResult Carrito(List<Carrito> productos)
-        {
-            List<Carrito> carritoArray = cnt.Carrito.ToList();
-
-            foreach (Carrito carrito in carritoArray)
+            List<CarritoVista> carritoVistaArray = new List<CarritoVista>();
+            foreach (var item in carritoArray)
             {
+                carritoVista.idCarrito = item.idCarrito;
+                carritoVista.idProducto = item.idProducto;
+                carritoVista.descripcion = item.descripcion;
+                carritoVista.codigoBarra = item.codigoBarra;
+                carritoVista.precioCompra = item.precioCompra;
+                carritoVista.porcentajeImpuesto = item.porcentajeImpuesto;
+                carritoVista.unidadMedida = item.unidadMedida;
+                carritoVista.precioVenta = item.precioVenta;// podria considerar quitarse
+                carritoVista.estado = item.estado;
+                carritoVista.categoria = item.categoria;
+                carritoVista.foto = item.foto;
+                carritoVistaArray.Add(carritoVista);
 
-                System.Diagnostics.Debug.WriteLine(carrito.unidadMedida);
-                System.Diagnostics.Debug.WriteLine(carrito);
             }
-            return RedirectToAction("Carrito", "Venta");
+            //valores para la compra
+            carritoVista.cantidad = 0;
+            carritoVista.subtotal = 0;
+            carritoVista.subtotalIva = 0;
+            carritoVista.subtotalEnvio = 0;
+            carritoVista.precioFinal = 0;
+            carritoVistaArray.Add(carritoVista);
+
+            return View(carritoVistaArray.ToList());
         }
 
         public IActionResult DeleteConfirmed(int? id)
@@ -228,7 +217,7 @@ namespace ProyectoWebCursoLenguajes.Controllers
         }
 
 
-        public IActionResult verSubtotal()
+        public IActionResult verSubtotal() 
         {
             return View();
         }
