@@ -1,15 +1,80 @@
-﻿@model IEnumerable<ProyectoWebCursoLenguajes.Models.Carrito>
+﻿@model List<ProyectoWebCursoLenguajes.Models.CarritoVista>
 @{
     ViewData["Title"] = "verSubtotal";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>verSubtotal</h1>
-<hr/>
-<p>Esta es una vista de Prueba para mostrar el subtotal</p>
+<h1>Subtotales</h1>
+<hr />
 
-<p>
-    <a class="btn btn-dark btn-lg waves-effect" asp-area="" asp-controller="Venta" asp-action="factura">
-        <i class="fa fa-shopping-cart grey-text">       Aceptar y Pagar</i>
-    </a>
-</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Descripción
+            </th>
+            <th>
+               Precio
+            </th>
+            <th>
+               Cantidad
+            </th>
+            <th>
+                Subtotal
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.precioCompra)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cantidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.subtotal)
+            </td>
+            <td>
+                
+               
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+<div class="mb-3">
+    <a type="button" class="btn btn-primary btn-sm mr-1 mb-2" asp-controller="Venta" asp-action="Carrito">Regresar</a> |
+    <a type="button" class="btn btn-primary btn-sm mr-1 mb-2" asp-controller="Venta" asp-action="factura">Continuar</a>
+</div>
+    <!-- Card -->
+
+
+
+<!-- Card -->
+<!-- Card -->
+<div class="mb-3">
+    <div class="pt-4">
+
+        <h5 class="mb-4">Se aceptan</h5>
+
+        <img class="mr-2" width="45px"
+             src="https://mdbootstrap.com/wp-content/plugins/woocommerce-gateway-stripe/assets/images/visa.svg"
+             alt="Visa">
+        <img class="mr-2" width="45px"
+             src="https://mdbootstrap.com/wp-content/plugins/woocommerce-gateway-stripe/assets/images/amex.svg"
+             alt="American Express">
+        <img class="mr-2" width="45px"
+             src="https://mdbootstrap.com/wp-content/plugins/woocommerce-gateway-stripe/assets/images/mastercard.svg"
+             alt="Mastercard">
+        <img class="mr-2" width="45px"
+             src="https://mdbootstrap.com/wp-content/plugins/woocommerce/includes/gateways/paypal/assets/images/paypal.png"
+             alt="PayPal acceptance mark">
+    </div>
+</div>
