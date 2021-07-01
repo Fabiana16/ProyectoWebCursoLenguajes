@@ -1,8 +1,10 @@
 ﻿@model List<ProyectoWebCursoLenguajes.Models.Carrito>
 
 
-@{ ViewData["Title"] = "Carrito";
-                Layout = "~/Views/Shared/_Layout.cshtml"; }
+@{
+    ViewData["Title"] = "Carrito";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
 <h1>Carrito de Compras</h1>
 
@@ -37,8 +39,14 @@
                     <p class="mb-3 text-muted text-uppercase small">Codigo:  @Html.DisplayFor(modelItem => Model[i].idProducto)</p>
 
 
+
                 </div>
                 <div>
+
+
+    <input type="submit" name="Aceptar y continuar" value="Aceptar y continuar" class="btn btn-dark btn-lg waves-effect" />
+}@*fin del formulario*@
+
 
                     <div class="def-number-input number-input safari_only mb-0 w-100">
                         @Html.TextBox("productos[" + @i + "].unidadMedida", Model[i].unidadMedida)
@@ -60,6 +68,8 @@
             </div>
         </div>
     </div>
-</div>} @*Fin del FOR para mostrar la lista de productos de Carrito*@
+</div>
+} @*Fin del FOR para mostrar la lista de productos de Carrito*@
 
 <input type="submit" name="Aceptar y continuar" value="Aceptar y continuar" class="btn btn-dark btn-lg waves-effect" />}@*fin del formulario*@
+
