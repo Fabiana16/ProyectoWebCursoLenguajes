@@ -1,18 +1,21 @@
 ﻿@model IEnumerable<ProyectoWebCursoLenguajes.Models.Producto>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Incio de Productos";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
-
+<h1>Inicio</h1>
+<hr />
 <p>
-    <a asp-action="Create">Create New</a>
+    <a type="button" class="btn btn-primary btn-sm mr-1 mb-2" asp-action="Create">Crear Nuevo Producto</a>
 </p>
 <table class="table">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.idProducto)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.codigoBarra)
             </th>
@@ -47,6 +50,9 @@
 @foreach (var item in Model) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.idProducto)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.codigoBarra)
             </td>
             <td>
@@ -74,9 +80,9 @@
                 @Html.DisplayFor(modelItem => item.foto)
             </th>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.idProducto">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.idProducto">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.idProducto">Delete</a>
+                <a type="button" class="btn btn-primary btn-sm mr-1 mb-2" asp-action="Edit" asp-route-id="@item.idProducto">Modificar</a> |
+                <a type="button" class="btn btn-primary btn-sm mr-1 mb-2" asp-action="Details" asp-route-id="@item.idProducto">Detalles</a> |
+                <a type="button" class="btn btn-primary btn-sm mr-1 mb-2" asp-action="Delete" asp-route-id="@item.idProducto">Eliminar</a>
             </td>
         </tr>
 }

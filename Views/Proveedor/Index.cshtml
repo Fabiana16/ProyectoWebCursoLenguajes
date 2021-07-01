@@ -1,14 +1,15 @@
 ﻿@model IEnumerable<ProyectoWebCursoLenguajes.Models.Proveedor>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Inicio del Proveedor";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Inicio</h1>
 
+<hr />
 <p>
-    <a asp-action="Create">Create New</a>
+    <a type="button" class="btn btn-primary btn-sm mr-1 mb-2" asp-action="Create">Crear Nuevo Proveedor</a>
 </p>
 <table class="table">
     <thead>
@@ -31,36 +32,43 @@
             <th>
                 @Html.DisplayNameFor(model => model.email)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.idProducto)
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.cedulaLegal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.nombreCompleto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.telefono)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.direccionExacta)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.contacto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.email)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.idProveedor">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.idProveedor">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.idProveedor">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cedulaLegal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombreCompleto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.telefono)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.direccionExacta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.contacto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.idProducto)
+                </td>
+                <td>
+                    <a type="button" class="btn btn-primary btn-sm mr-1 mb-2" asp-action="Edit" asp-route-id="@item.idProveedor">Modificar</a> |
+                    <a type="button" class="btn btn-primary btn-sm mr-1 mb-2" asp-action="Details" asp-route-id="@item.idProveedor">Detalles</a> |
+                    <a type="button" class="btn btn-primary btn-sm mr-1 mb-2"asp-action="Delete" asp-route-id="@item.idProveedor">Eliminar</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

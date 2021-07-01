@@ -11,31 +11,55 @@
 
 
     <body>
-        <!-- Jumbotron -->
-        <div class="jumbotron p-0">
+        <!-- News jumbotron -->
+        <div class="jumbotron text-center hoverable p-4" style="background-color:#D8FBFF">
 
-            <!-- Card image -->
-            <div class="view overlay rounded-top">
-                <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(134).jpg" class="img-fluid" alt="Sample image">
-                <a href="#">
-                    <div class="mask rgba-white-slight"></div>
-                </a>
+            <!-- Grid row -->
+            <div class="row">
+
+                <!-- Grid column -->
+                <div class="col-md-4 offset-md-1 mx-3 my-3">
+
+                    <!-- Featured image -->
+                    <div class="view overlay">
+                        <img src="~/css/img/Linea Blanca.png" class="img-fluid" alt="LineaBlanca">
+                        <a>
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+
+                </div>
+                <!-- Grid column -->
+                <!-- Grid column -->
+                <div class="col-md-7 text-md-left ml-3 mt-3">
+
+                  
+
+                    <h4 class="h4 mb-4">En Distribuidora del Pacífico de ofrecemos excelentes productos a un precio inigualable</h4>
+                    <hr />
+                    
+                    <p class="font-weight-normal">
+                        <strong>Tu casa es nuestra prioridad, confía en los que saben</strong>
+                        <br />
+                        Recuerda que al adquirir productos de nuestra tienda puedes obtener descuentos increíbles 10% descuento para la compra entre 3 a 6 productos,
+                        15% para la compra entre 7 a 9 productos, 20% para la compra entre 10 a 12 productos y 25% para la compra de más 13 productos.
+                        <br />
+                        <strong>***OFERTA VÁLIDA SOLAMENTE EN PAGOS CON EFECTIVO***</strong>
+                    </p>
+                    
+
+                </div>
+                <!-- Grid column -->
+
             </div>
-
-            <!-- Card content -->
-            <div class="card-body text-center mb-3">
-
-                <!-- Title -->
-                <h3 class="card-title h3 my-4"><strong>Card title</strong></h3>
-                <!-- Text -->
-                <p class="card-text py-2">Some quick example text to build on the card title and make up the bulk of the card's</p>
-                <!-- Button -->
-                <a href="#" class="btn purple-gradient btn-rounded mb-4">Button</a>
-
-            </div>
+            <!-- Grid row -->
 
         </div>
+        <!-- News jumbotron -->
         <!--<!-- Jumbotron -->
+        @*inicio de card*@
+        <br />
+        <br />
         <div class="container">
             <div class="row">
 
@@ -46,11 +70,6 @@
                         <!--card-->
                         <!--Section: Content-->
                         <div class="col-lg-3 col-md-6 mb-4">
-                            <!-- Section heading -->
-                            <h3 class="font-weight-bold mb-4 pb-2">Our bestsellers</h3>
-                            <!-- Section description -->
-                            <p class="grey-text w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit fugit, error amet numquam iure provident voluptate esse quasi nostrum quisquam eum porro a pariatur veniam.</p>
-
                             <!-- Grid row -->
                             @*<div class="row">*@
 
@@ -61,33 +80,36 @@
                                 <div>
                                     <img src=@Html.DisplayFor(a => item.foto) class="card-img-top"
                                          alt="sample photo">
-
                                 </div>
                                 <!-- Card image -->
                                 <!-- Card content -->
                                 <div class="card-body card-body-cascade text-center pb-3">
                                     <!-- Title -->
-                                    <h5 class="card-title mb-1">
-                                        <strong>
-                                            <a href="">@Html.DisplayFor(a => item.descripcion)</a>
-                                        </strong>
-                                    </h5>
+                                    <p>
+                                        <div>
+                                            <a>@Html.DisplayFor(a => item.descripcion)</a>
+                                        </div>
+                                        <div>
+                                            <a>₡@Html.DisplayFor(a => item.precioVenta)</a>
+                                        </div>
+                                    </p>
                                     <!-- Description -->
                                     <p class="card-text">
-                                        Neque porro quisquam est, qui dolorem ipsum quia dolor sit.
+
                                     </p>
                                     <!-- Card footer -->
                                     <div class="card-footer px-1">
-
                                         <span class="float-center">
-
-
-                                            <button type="button" class="btn btn-primary btn-sm mr-1 mb-2">
+                                            <a type="button" class="boton" asp-area="" asp-controller="Venta" asp-action="anadirCarrito" asp-route-id="@item.idProducto">
                                                 <i class="fa fa-shopping-cart grey-text pr-2"></i>
-                                            </button>
-                                            <button type="button" class="btn btn-light btn-sm mr-1 mb-2">
+                                            </a>
+                                        </span>
+                                        <br />
+                                        <br />
+                                        <span class="float-center">
+                                            <a href="#" class="boton" data-toggle="modal" data-target="#P-@item.idProducto">
                                                 <i class="fa fa-info-circle pr-2"></i>
-                                            </button>
+                                            </a>
                                         </span>
                                     </div>
                                 </div>
@@ -100,9 +122,58 @@
                         <!-- Grid row -->
                     }
                 }
-
-
             </div><!--m5-->
         </div>
         <!--foreach-->
+
+        @foreach (var item in Model)
+        {
+            if (item.categoria == "Linea Blanca")
+            {
+                <!-- Modal -->
+                <div id="P-@item.idProducto" class="modal" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Detalles del producto</h5>
+
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>
+                                    Código de barra:
+                                    <a href="">@Html.DisplayFor(a => item.codigoBarra)</a>
+                                    <hr />
+                                </p>
+                                <p>
+                                    Descripción del producto:
+                                    <a>@Html.DisplayFor(a => item.descripcion)</a>
+                                    <hr />
+                                </p>
+                                <p>
+                                    Estado del producto:
+                                    <a>@Html.DisplayFor(a => item.estado)</a>
+                                    <hr />
+                                </p>
+                                <p>
+                                    Precio del producto:
+                                    <a>@Html.DisplayFor(a => item.precioVenta)</a>
+                                    <hr />
+                                </p>
+                                <p>
+                                    Porcentaje de impuesto:
+                                    <a>@Html.DisplayFor(a => item.porcentajeImpuesto)</a>
+
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            </div> @*boton*@
+                        </div>
+                    </div>
+                </div>
+            }
+        }
     </body>

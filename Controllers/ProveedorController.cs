@@ -54,14 +54,14 @@ namespace ProyectoWebCursoLenguajes.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("idProveedor,cedulaLegal,nombreCompleto,telefono,direccionExacta,contacto,email")] Proveedor proveedor)
+        public async Task<IActionResult> Create([Bind("idProveedor,cedulaLegal,nombreCompleto,telefono,direccionExacta,contacto,email,idProducto")] Proveedor proveedor)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Add(proveedor);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
+                if (ModelState.IsValid)
+                {
+                    _context.Add(proveedor);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
             return View(proveedor);
         }
 
@@ -86,7 +86,7 @@ namespace ProyectoWebCursoLenguajes.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("idProveedor,cedulaLegal,nombreCompleto,telefono,direccionExacta,contacto,email")] Proveedor proveedor)
+        public async Task<IActionResult> Edit(int id, [Bind("idProveedor,cedulaLegal,nombreCompleto,telefono,direccionExacta,contacto,email,idProducto")] Proveedor proveedor)
         {
             if (id != proveedor.idProveedor)
             {
@@ -149,5 +149,7 @@ namespace ProyectoWebCursoLenguajes.Controllers
         {
             return _context.Proveedor.Any(e => e.idProveedor == id);
         }
+
+       
     }
 }

@@ -22,3 +22,19 @@ function myFunction() {
 $('#myModal').on('shown.bs.modal', function () {
   $('#myInput').trigger('focus')
 })
+
+var input = document.getElementById('numCheq, banco');
+
+function carg(elemento) {
+    d = elemento.value;
+
+    if (d == "Cheque") {
+        numCheq.disabled = false;
+        banco.disabled = false;
+    } else {
+        numCheq.disabled = true;
+        banco.disabled = true;
+    }
+}
+
+$('.alert').alert()

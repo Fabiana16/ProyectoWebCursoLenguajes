@@ -23,14 +23,42 @@
                             <li class="nav-item">
                                 <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-light" asp-area="" asp-controller="Producto" asp-action="Index" target="_parent">Log in</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Registrarse</a>
-                            </li>
-                        </ul>
-                    </div>
+                            <li>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" asp-area="" asp-controller="Producto" asp-action="Index">Manejo de Productos</a>
+                                </li>
+                                <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#"
+                                   aria-haspopup="true" aria-expanded="false">Manejo de Proveedores</a>
+
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item nav-link text-dark" asp-area="" asp-controller="Proveedor" asp-action="Index">Manejo de Proveedores</a>
+                                    <a class="dropdown-item nav-link text-dark" asp-controller="ProveedorProducto" asp-action="Index">Detalles de Proveedor-Producto</a>
+
+                                </div>
+                             
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" asp-area="" asp-controller="Usuarios" asp-action="Index">Manejo de Usuarios</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" asp-area="" asp-controller="Login" asp-action="CrearCuenta">Crear Usuario</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" asp-area="" asp-controller="Login" asp-action="Logout">Cerrar Sesion</a>
+                                </li>
+
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" asp-area="" asp-controller="Login" asp-action="Index">Iniciar Sesion</a>
+                                </li>
+                            }
+                                </li>
+                            </ul>
+                   </div>
                 </div>
             </nav> @*nav azul*@
 
@@ -44,11 +72,11 @@
                         </button>
                         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                             <div class="navbar-nav">
-                                <a class="nav-link" asp-area="" asp-controller="Producto" asp-action="lineaBlanca">Linea blanca</a>
-                                <a class="nav-link" asp-area="" asp-controller="Producto" asp-action="lineaHogar">Linea Hogar</a>
-                                <a class="nav-link" asp-area="" asp-controller="Producto" asp-action="lineaTecnologica">Linea Tecnologica</a>
+                                <a class="nav-link" asp-area="" asp-controller="Producto" asp-action="lineaBlanca">Línea blanca</a>
+                                <a class="nav-link" asp-area="" asp-controller="Producto" asp-action="lineaHogar">Línea Hogar</a>
+                                <a class="nav-link" asp-area="" asp-controller="Producto" asp-action="lineaTecnologica">Línea Tecnológica</a>
                                 <a class="nav-link" asp-area="" asp-controller="Producto" asp-action="abarrotes">Abarrotes</a>
-                                <a class="nav-link" asp-area="" asp-controller="Producto" asp-action="Index">Productos</a>
+                                
                             </div>
 
                             <div class="col-sm-3">
@@ -62,6 +90,7 @@
                     </div>
                 </nav>
             </div> @*nav 2*@
+
         </header>
 
         <div class="container">

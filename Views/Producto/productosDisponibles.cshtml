@@ -1,0 +1,51 @@
+﻿
+@model IEnumerable<ProyectoWebCursoLenguajes.Models.Producto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Productos Disponibles</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.idProducto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.codigoBarra)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.categoria)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.idProducto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.codigoBarra)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descripcion)
+            </td>           
+            <th>
+                @Html.DisplayFor(modelItem => item.categoria)
+            </th>
+        </tr>
+        }
+    </tbody>
+</table>
+<a class="btn btn-info btn-sm mr-1 mb-2 text-light" asp-area="" asp-controller="Proveedor" asp-action="Create">
+    Volver atras
+</a>

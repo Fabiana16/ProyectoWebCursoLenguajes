@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using ProyectoWebCursoLenguajes.Models;
 
+
 namespace ProyectoWebCursoLenguajes.Data
 {
     public class ProyectoWebCursoLenguajesContext : DbContext
@@ -19,5 +20,10 @@ namespace ProyectoWebCursoLenguajes.Data
         public DbSet<ProyectoWebCursoLenguajes.Models.Proveedor> Proveedor { get; set; }
 
         public DbSet<ProyectoWebCursoLenguajes.Models.Carrito> Carrito { get; set; }
+
+        public DbSet<ProyectoWebCursoLenguajes.Models.ProveedorProducto> ProveedorProducto { get; set; }
+
+        public DbSet<ProyectoWebCursoLenguajes.Models.Usuario> Usuario { get; set; }
+
     }
 }
