@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using ProyectoWebCursoLenguajes.Data;
 using ProyectoWebCursoLenguajes.Models;
 using System;
@@ -385,15 +385,6 @@ namespace ProyectoWebCursoLenguajes.Controllers
         }//enviar factura
     }//fin de clase
 }//fin de namespace
-
-
-
-    
-
-
-
-
-
 
 
 
