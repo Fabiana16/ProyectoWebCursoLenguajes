@@ -40,25 +40,34 @@
             <div class="form-group">
                 <label asp-for="metodoPago" class="control-label">Método de Pago</label>
                 <div>
-                <select asp-for="metodoPago" class="form-control" id="metodoPago" onchange="carg(this);">
-                    <option value="">Escoja un método de Pago...</option>
-                    <option value="Efectivo">Efectivo</option>
-                    <option value="Tarjeta">Tarjeta</option>
-                    <option value="Cheque">Cheque</option>
-                </select>
-                <label asp-for="numeroCheque" class="control-label">Número de Cheque</label>
-                <input asp-for="numeroCheque" class="form-control" id="numCheq" disabled/>
-                <span asp-validation-for="numeroCheque" class="text-danger"></span>
+                    <select asp-for="metodoPago" class="form-control" id="metodoPago" onchange="carg(this);">
+                        <option value="">Escoja un método de Pago...</option>
+                        <option value="Efectivo">Efectivo</option>
+                        <option value="Tarjeta">Tarjeta</option>
+                        <option value="Cheque">Cheque</option>
+                    </select>
+                    <label asp-for="numeroCheque" class="control-label">Número de Cheque</label>
+                    <input asp-for="numeroCheque" class="form-control" id="numCheq" disabled />
+                    <span asp-validation-for="numeroCheque" class="text-danger"></span>
 
-                <label asp-for="banco" class="control-label">Banco</label>
-                <input asp-for="banco" class="form-control" id="banco" disabled/>
-                <span asp-validation-for="banco" class="text-danger"></span>
+                  
+                        <label asp-for="banco" class="control-label">Porcentaje Impuesto</label>
+                        <select asp-for="banco" class="form-control" id="banco" disabled>
+                            <option value="">Escoja una opcion...</option>
+                            <option value="Banco Nacional">Banco Nacional</option>
+                            <option value="Banco de Costa Rica">Banco de Costa Rica</option>
+                            <option value="Banco Popular">Banco Popular</option>
+                            <option value="BAC San Jose">BAC San José</option>
+                        </select>
+                        <span asp-validation-for="banco" class="text-danger"></span>
+              
 
-                <span asp-validation-for="metodoPago" class="text-danger"></span>
-            </div>
+                    <span asp-validation-for="metodoPago" class="text-danger"></span>
+                </div>
             </div>
             <div class="form-group">
-                <input type="submit" value="Crear" class="btn btn-primary" />
+                <input type="submit" value="Crear" class="btn btn-primary" /> | 
+                <a type="button" class="btn btn-primary btn-sm mr-1 mb-2" asp-controller="Venta" asp-action="verSubtotal">Regresar</a>
             </div>
         </form>
     </div>
