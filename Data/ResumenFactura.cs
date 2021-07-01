@@ -24,6 +24,7 @@ namespace ProyectoWebCursoLenguajes.Data
         public string metodoPago { get; set; }
         public int numeroCheque { get; set; }
         public string banco { get; set; }
+        public decimal impEnvio { get; set; }
 
 
     }

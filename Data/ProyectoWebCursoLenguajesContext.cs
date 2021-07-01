@@ -25,5 +25,6 @@ namespace ProyectoWebCursoLenguajes.Data
 
         public DbSet<ProyectoWebCursoLenguajes.Models.Usuario> Usuario { get; set; }
 
+        public DbSet<ProyectoWebCursoLenguajes.Models.Factura> Factura { get; set; }
     }
 }
